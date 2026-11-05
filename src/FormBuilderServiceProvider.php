@@ -102,10 +102,9 @@ class FormBuilderServiceProvider extends ServiceProvider
             Permissions::register('forms', FormPolicy::permissions(), label: 'Forms');
         }
 
-        $manager = $this->app->make(FormBuilderManager::class);
-
-        Permissions::policy($manager->model('form'), config('form-builder.policies.form', FormPolicy::class));
-        Permissions::policy($manager->model('entry'), config('form-builder.policies.entry', FormEntryPolicy::class));
+        // The base classes: Gate finds policies of subclasses (the translatable form model) too
+        Permissions::policy(config('form-builder.models.form') ?? Models\Form::class, config('form-builder.policies.form', FormPolicy::class));
+        Permissions::policy(config('form-builder.models.entry') ?? Models\FormEntry::class, config('form-builder.policies.entry', FormEntryPolicy::class));
     }
 
     protected function registerPublishing(): void

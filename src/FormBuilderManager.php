@@ -42,6 +42,9 @@ class FormBuilderManager
     /** @var array<string, InputType|class-string<InputType>> */
     protected array $input_types = [];
 
+    /** @var class-string<Form>|null */
+    protected ?string $translatable_form = null;
+
     /** @var array<string, array<int, Closure>> */
     protected array $extensions = [];
 
@@ -60,7 +63,27 @@ class FormBuilderManager
      */
     public function model(string $name): string
     {
-        return config("form-builder.models.{$name}") ?? self::MODELS[$name];
+        $model = config("form-builder.models.{$name}");
+
+        if ($model) {
+            return $model;
+        }
+
+        // The translatable form model when javaabu/translatable is on. It reads
+        // the languages, so it's decided when a model is first needed.
+        if ($name === 'form') {
+            return $this->translatable_form ??= Support\Translations::enabled() ? Models\Translatable\Form::class : Form::class;
+        }
+
+        return self::MODELS[$name];
+    }
+
+    /**
+     * @internal forget the form model chosen, after javaabu/translatable's languages change
+     */
+    public function forgetModels(): void
+    {
+        $this->translatable_form = null;
     }
 
     /*

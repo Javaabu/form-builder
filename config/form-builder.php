@@ -64,11 +64,13 @@ return [
     |--------------------------------------------------------------------------
     |
     | The models and tables. Extend a model to add to it and set it here.
+    | A null form model is Models\Translatable\Form when javaabu/translatable
+    | is on (names and descriptions in every language), Models\Form otherwise.
     |
     */
 
     'models' => [
-        'form' => Models\Form::class,
+        'form' => null,
         'version' => Models\FormVersion::class,
         'section' => Models\FormSection::class,
         'field' => Models\FormField::class,
