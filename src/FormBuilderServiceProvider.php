@@ -2,13 +2,23 @@
 
 namespace Javaabu\FormBuilder;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Javaabu\FormBuilder\Assets\Assets;
 use Javaabu\FormBuilder\Compiler\Compiler;
 use Javaabu\FormBuilder\Entries\EntryRecorder;
+use Javaabu\FormBuilder\Policies\FormEntryPolicy;
+use Javaabu\FormBuilder\Policies\FormPolicy;
+use Javaabu\FormBuilder\Routing\FormBuilderRoutes;
+use Javaabu\Manifest\Concerns\RegistersAssets;
+use Javaabu\Manifest\Package;
+use Javaabu\Permissions\Permissions;
 use Javaabu\Stencil\Facades\Stencil;
 
 class FormBuilderServiceProvider extends ServiceProvider
 {
+    use RegistersAssets;
+
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/form-builder.php', 'form-builder');
@@ -24,8 +34,11 @@ class FormBuilderServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(__DIR__ . '/../lang');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'form-builder');
 
+        $this->registerFrontendAssets();
         $this->registerInputTypes();
         $this->registerStencilViews();
+        $this->registerRouteMacros();
+        $this->registerPermissions();
 
         if ($this->app->runningInConsole()) {
             if (FormBuilderManager::$runs_migrations) {
@@ -34,6 +47,17 @@ class FormBuilderServiceProvider extends ServiceProvider
 
             $this->registerPublishing();
         }
+    }
+
+    /**
+     * The Inertia pages (form-builder::Forms/Index, …), the components apps
+     * import as @javaabu/form-builder, the styles and the Blade scripts
+     */
+    protected function registerFrontendAssets(): void
+    {
+        $this->registerAssets(Assets::PACKAGE, __DIR__ . '/../resources', function (Package $package) {
+            Assets::register($package);
+        });
     }
 
     /**
@@ -51,6 +75,32 @@ class FormBuilderServiceProvider extends ServiceProvider
     {
         Stencil::view('repeater', 'form-builder::stencil.repeater');
         Stencil::view('form-builder-content', 'form-builder::stencil.content');
+    }
+
+    protected function registerRouteMacros(): void
+    {
+        Route::macro('formBuilder', function (array $options = []) {
+            FormBuilderRoutes::admin($this, $options);
+        });
+
+        Route::macro('formBuilderFill', function (array $options = []) {
+            FormBuilderRoutes::fill($this, $options);
+        });
+    }
+
+    /**
+     * The form permissions and the default policies, which the app can override
+     */
+    protected function registerPermissions(): void
+    {
+        if (config('form-builder.register_permissions', true)) {
+            Permissions::register('forms', FormPolicy::permissions(), label: 'Forms');
+        }
+
+        $manager = $this->app->make(FormBuilderManager::class);
+
+        Permissions::policy($manager->model('form'), config('form-builder.policies.form', FormPolicy::class));
+        Permissions::policy($manager->model('entry'), config('form-builder.policies.entry', FormEntryPolicy::class));
     }
 
     protected function registerPublishing(): void

@@ -1,3 +1,5 @@
+@manifestRequire('form-builder::repeater')
+@manifestRequire('form-builder::styles')
 @php
     /** @var \Javaabu\Stencil\Rendering\Node $node */
     /** @var \Javaabu\FormBuilder\Stencil\Repeater $repeater */

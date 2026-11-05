@@ -123,6 +123,17 @@ abstract class InputType
     }
 
     /**
+     * Settings that are text in every language, edited with one input per
+     * locale: setting key => 'text' or 'textarea'
+     *
+     * @return array<string, string>
+     */
+    public function localizedSettings(): array
+    {
+        return [];
+    }
+
+    /**
      * Rules for the settings the builder saves, keyed by setting
      *
      * @return array<string, array<int, mixed>>

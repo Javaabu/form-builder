@@ -2,10 +2,10 @@
 
 namespace Javaabu\FormBuilder\InputTypes;
 
-use Illuminate\Support\Facades\Route;
 use Javaabu\FormBuilder\Compiler\CompileContext;
 use Javaabu\FormBuilder\Definitions\Field;
 use Javaabu\FormBuilder\InputTypes\Concerns\HasOptions;
+use Javaabu\FormBuilder\Routing\FormBuilderRoutes;
 use Javaabu\Stencil\Components\Component;
 use Javaabu\Stencil\Fields\Checkbox;
 use Javaabu\Stencil\Fields\Select;
@@ -89,16 +89,20 @@ class SelectType extends InputType
      */
     protected function optionsUrl(Field $field, CompileContext $context): ?string
     {
-        $route = (string) config('form-builder.options_route', 'form-builder.options');
+        $route = FormBuilderRoutes::optionsRoute(request());
         $form = $context->definition->getKey();
 
-        if ($form === '' || ! Route::has($route)) {
+        if ($form === '' || $route === null) {
             return null;
         }
 
         $path = $context->group ? "{$context->group->getKey()}.{$field->getKey()}" : $field->getKey();
 
-        return route($route, ['form' => $form, 'field' => $path], false);
+        return route($route, array_filter([
+            'form' => $form,
+            'field' => $path,
+            'version' => $context->version?->getKey(),
+        ]), false);
     }
 
     public function settings(): array

@@ -108,10 +108,13 @@ class RepeaterType extends InputType
         return [
             TextInput::make('min_rows')->label(__('Fewest rows'))->integer()->minValue(0),
             TextInput::make('max_rows')->label(__('Most rows'))->integer()->minValue(1),
-            TextInput::make('add_label')->label(__('Add button label')),
-            TextInput::make('row_label')->label(__('Row heading'))->help(__('Use :number for the row\'s number.')),
             TextInput::make('columns')->label(__('Columns'))->integer()->minValue(1)->maxValue(4),
         ];
+    }
+
+    public function localizedSettings(): array
+    {
+        return ['add_label' => 'text', 'row_label' => 'text'];
     }
 
     public function settingsRules(): array

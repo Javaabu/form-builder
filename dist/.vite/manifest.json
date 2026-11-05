@@ -1,0 +1,23 @@
+{
+  "resources/css/form-builder.css": {
+    "file": "assets/form-builder-D0iYt97d.css",
+    "name": "form-builder",
+    "names": [
+      "form-builder.css"
+    ],
+    "src": "resources/css/form-builder.css",
+    "isEntry": true
+  },
+  "resources/js/blade/builder.ts": {
+    "file": "assets/builder-BTchXTHY.js",
+    "name": "builder",
+    "src": "resources/js/blade/builder.ts",
+    "isEntry": true
+  },
+  "resources/js/blade/repeater.ts": {
+    "file": "assets/repeater-Caslt8Mq.js",
+    "name": "repeater",
+    "src": "resources/js/blade/repeater.ts",
+    "isEntry": true
+  }
+}

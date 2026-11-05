@@ -38,6 +38,11 @@ class HeadingType extends InputType
         return false;
     }
 
+    public function localizedSettings(): array
+    {
+        return ['content' => 'textarea'];
+    }
+
     protected function make(Field $field, CompileContext $context): Component
     {
         return Content::heading($this->text($field, $context))->key($context->path($field->getKey()));

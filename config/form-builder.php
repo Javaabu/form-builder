@@ -126,11 +126,12 @@ return [
     | Cascading selects
     |--------------------------------------------------------------------------
     |
-    | The route that serves a cascading select's options. It's registered by
-    | Route::formBuilder() and Route::formBuilderFill().
+    | The route that serves a cascading select's options. Route::formBuilder()
+    | and Route::formBuilderFill() register one each; null uses the current
+    | page's, then the fill routes', then the admin routes'.
     |
     */
 
-    'options_route' => 'form-builder.options',
+    'options_route' => null,
 
 ];

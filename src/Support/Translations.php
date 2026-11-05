@@ -146,4 +146,41 @@ class Translations
             $model->save();
         }
     }
+
+    /**
+     * A locale's name in its own language, for labels of per-locale inputs
+     */
+    public static function localeName(string $code): string
+    {
+        if (static::enabled()) {
+            $locale = Translatable::locale($code);
+
+            if ($locale) {
+                return $locale->native_name ?: $locale->name;
+            }
+        }
+
+        return match ($code) {
+            'en' => 'English',
+            'dv' => 'ދިވެހި',
+            'ar' => 'العربية',
+            default => $code,
+        };
+    }
+
+    /**
+     * Whether a locale is written right to left
+     */
+    public static function isRtl(string $code): bool
+    {
+        if (static::enabled()) {
+            $locale = Translatable::locale($code);
+
+            if ($locale) {
+                return $locale->isRtl();
+            }
+        }
+
+        return in_array($code, ['dv', 'ar', 'fa', 'he', 'ur'], true);
+    }
 }
