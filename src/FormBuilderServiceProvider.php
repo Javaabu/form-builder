@@ -46,6 +46,11 @@ class FormBuilderServiceProvider extends ServiceProvider
             }
 
             $this->registerPublishing();
+
+            $this->commands([
+                Commands\ExportCommand::class,
+                Commands\ImportCommand::class,
+            ]);
         }
     }
 

@@ -1,7 +1,14 @@
 <?php
 
+use Javaabu\FormBuilder\Http\Controllers\EntriesController;
+use Javaabu\FormBuilder\Http\Controllers\FieldsController;
+use Javaabu\FormBuilder\Http\Controllers\FillController;
+use Javaabu\FormBuilder\Http\Controllers\FormsController;
+use Javaabu\FormBuilder\Http\Controllers\SectionsController;
 use Javaabu\FormBuilder\InputTypes;
 use Javaabu\FormBuilder\Models;
+use Javaabu\FormBuilder\Policies\FormEntryPolicy;
+use Javaabu\FormBuilder\Policies\FormPolicy;
 
 return [
 
@@ -39,6 +46,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Builder
+    |--------------------------------------------------------------------------
+    |
+    | Turn the builder off to define forms only in code (seeders and
+    | FormBuilder::define()). Route::formBuilder() then registers the forms
+    | list, previews, versions, export and entries, but nothing that changes
+    | a form.
+    |
+    */
+
+    'builder' => env('FORM_BUILDER_BUILDER', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Storage
     |--------------------------------------------------------------------------
     |
@@ -69,12 +90,14 @@ return [
     | Entries
     |--------------------------------------------------------------------------
     |
-    | store_ip keeps the submitter's IP address with each entry.
+    | store_ip keeps the submitter's IP address with each entry; columns is
+    | how many answers the entries list shows.
     |
     */
 
     'entries' => [
         'store_ip' => false,
+        'columns' => 4,
     ],
 
     /*
@@ -133,5 +156,58 @@ return [
     */
 
     'options_route' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pages
+    |--------------------------------------------------------------------------
+    |
+    | The pages Route::formBuilder() and Route::formBuilderFill() render:
+    | blade (javaabu/forms components and stencil's Blade driver) or inertia
+    | (React pages shipped through javaabu/manifest). Requests that expect
+    | JSON always get JSON. per_page is the length of lists; entries.columns
+    | the answers the entries list shows.
+    |
+    */
+
+    'views' => env('FORM_BUILDER_VIEWS', 'blade'),
+
+    /*
+    | The Blade layout the pages extend, and the section they fill.
+    */
+
+    'layout' => 'layouts.app',
+
+    'layout_section' => 'content',
+
+    'per_page' => 20,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Controllers and authorization
+    |--------------------------------------------------------------------------
+    |
+    | Replace a controller with a subclass, or pass `controllers` to
+    | Route::formBuilder() (`controller` to Route::formBuilderFill()). The
+    | policies are the package defaults; apps can also override them with
+    | config('permissions.policies') or Gate::policy(). Turn off
+    | register_permissions to register your own.
+    |
+    */
+
+    'controllers' => [
+        'forms' => FormsController::class,
+        'sections' => SectionsController::class,
+        'fields' => FieldsController::class,
+        'entries' => EntriesController::class,
+        'fill' => FillController::class,
+    ],
+
+    'policies' => [
+        'form' => FormPolicy::class,
+        'entry' => FormEntryPolicy::class,
+    ],
+
+    'register_permissions' => true,
 
 ];
