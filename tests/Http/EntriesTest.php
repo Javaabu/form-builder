@@ -72,6 +72,28 @@ class EntriesTest extends TestCase
     }
 
     #[Test]
+    public function pages_work_in_dhivehi_and_rtl(): void
+    {
+        $this->jobApplication();
+        $entry = $this->entry();
+
+        $this->app->setLocale('dv');
+
+        $this->actingAs($this->user())
+            ->get("/forms/job-application/entries/{$entry->id}/print")
+            ->assertOk()
+            ->assertSee('dir="rtl"', false)
+            ->assertSee('ޕްރިންޓް')
+            ->assertSee('ފަރުދީ މަޢުލޫމާތު');
+
+        $this->actingAs($this->user())
+            ->get('/forms/job-application')
+            ->assertOk()
+            ->assertSee('ސެކްޝަނެއް އިތުރުކުރޭ')
+            ->assertSee('ފީލްޑެއް އިތުރުކުރޭ');
+    }
+
+    #[Test]
     public function it_exports_entries_as_csv(): void
     {
         $this->jobApplication();
