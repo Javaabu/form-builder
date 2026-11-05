@@ -85,6 +85,12 @@ class FillingTest extends TestCase
         $this->assertStringContainsString('Give up to three people we can call.', $html);
         $this->assertStringContainsString('Add a reference', $html);
         $this->assertStringContainsString('Reference 1', $html);
+
+        // The repeater's markup, for the Blade script's tests
+        if (getenv('FORM_BUILDER_UPDATE_FIXTURES')) {
+            preg_match('/<div class="form-builder-repeater".*?<x-end-repeater>/s', str_replace('<div class="form-builder-repeater-footer">', '<x-end-repeater>', $html), $matches);
+            file_put_contents(dirname(__DIR__) . '/js/fixtures/repeater.html', ($matches[0] ?? '') ? str_replace('<x-end-repeater>', '<div class="form-builder-repeater-footer"><button type="button" data-form-builder-repeater-add>Add a reference</button></div></div>', $matches[0]) . "\n" : '');
+        }
     }
 
     #[Test]

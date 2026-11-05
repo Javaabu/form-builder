@@ -15,5 +15,5 @@
             @endforeach
         </select>
     </div>
-    <x-forms::button type="submit" color="outline" start-icon="plus">{{ $strings['add_field'] }}</x-forms::button>
+    <x-forms::button type="submit" color="outline-secondary" start-icon="plus">{{ $strings['add_field'] }}</x-forms::button>
 </form>

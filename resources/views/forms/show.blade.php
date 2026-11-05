@@ -10,16 +10,16 @@
             @slot('actions')
                 <x-forms::status :label="$form['status_label']" :color="$form['status'] === 'published' ? 'success' : ($form['status'] === 'changed' ? 'warning' : 'secondary')" />
                 @if($editable && isset($urls['edit']))
-                    <x-forms::link-button :url="$urls['edit']" color="outline" start-icon="settings">{{ $strings['settings'] }}</x-forms::link-button>
+                    <x-forms::link-button :url="$urls['edit']" color="outline-secondary" start-icon="pencil">{{ $strings['settings'] }}</x-forms::link-button>
                 @endif
-                <x-forms::link-button :url="$urls['preview']" color="outline" start-icon="eye">{{ $strings['preview'] }}</x-forms::link-button>
+                <x-forms::link-button :url="$urls['preview']" color="outline-secondary" start-icon="eye">{{ $strings['preview'] }}</x-forms::link-button>
                 @if($can['view_entries'])
-                    <x-forms::link-button :url="$urls['entries']" color="outline">{{ $strings['entries'] }} ({{ $form['entries_count'] }})</x-forms::link-button>
+                    <x-forms::link-button :url="$urls['entries']" color="outline-secondary">{{ $strings['entries'] }} ({{ $form['entries_count'] }})</x-forms::link-button>
                 @endif
-                <x-forms::link-button :url="$urls['versions']" color="outline">{{ $strings['versions'] }}</x-forms::link-button>
-                <x-forms::link-button :url="$urls['export']" color="outline" start-icon="download">{{ $strings['export'] }}</x-forms::link-button>
+                <x-forms::link-button :url="$urls['versions']" color="outline-secondary">{{ $strings['versions'] }}</x-forms::link-button>
+                <x-forms::link-button :url="$urls['export']" color="outline-secondary" start-icon="download">{{ $strings['export'] }}</x-forms::link-button>
                 @isset($form['urls']['fill'])
-                    <x-forms::link-button :url="$form['urls']['fill']" color="outline" start-icon="external-link">{{ $strings['fill'] }}</x-forms::link-button>
+                    <x-forms::link-button :url="$form['urls']['fill']" color="outline-secondary" start-icon="external-link">{{ $strings['fill'] }}</x-forms::link-button>
                 @endisset
                 @if($can['publish'])
                     <form method="POST" action="{{ $urls['publish'] }}" data-form-builder-confirm="{{ $strings['confirm_publish'] }}">
@@ -42,7 +42,7 @@
                         <form method="POST" action="{{ $urls['discard'] }}" data-form-builder-confirm="{{ $strings['confirm_discard'] }}">
                             @csrf
                             @method('DELETE')
-                            <x-forms::button type="submit" color="outline" size="sm">{{ $strings['discard'] }}</x-forms::button>
+                            <x-forms::button type="submit" color="outline-secondary" size="sm">{{ $strings['discard'] }}</x-forms::button>
                         </form>
                     @endif
                 </div>
@@ -70,7 +70,7 @@
                                             data-form-builder-handle
                                             aria-describedby="form-builder-instructions"
                                             aria-label="{{ str_replace(':item', $section['title'], $strings['move']) }}">
-                                        <x-forms::icon name="grip-vertical" />
+                                        <x-forms::icon name="arrow-up-down" />
                                     </button>
                                 @endif
                                 <div class="flex min-w-0 flex-1 flex-col gap-1">
@@ -90,9 +90,9 @@
                                 @if($editable)
                                     <div class="flex shrink-0 flex-wrap items-center gap-1">
                                         @include('form-builder::partials.move-buttons', ['item' => $section])
-                                        <x-forms::link-button :url="$section['urls']['edit']" color="outline" size="sm">{{ $strings['edit'] }}</x-forms::link-button>
+                                        <x-forms::link-button :url="$section['urls']['edit']" color="outline-secondary" size="sm">{{ $strings['edit'] }}</x-forms::link-button>
                                         @if(count($sections) > 1)
-                                            <x-forms::button type="submit" color="destructive" size="sm" form="form-builder-delete-section-{{ $section['key'] }}">{{ $strings['delete'] }}</x-forms::button>
+                                            <x-forms::button type="submit" color="danger" size="sm" form="form-builder-delete-section-{{ $section['key'] }}">{{ $strings['delete'] }}</x-forms::button>
                                         @endif
                                     </div>
                                     <form method="POST" action="{{ $section['urls']['destroy'] }}" id="form-builder-delete-section-{{ $section['key'] }}" data-form-builder-confirm="{{ $strings['confirm_delete'] }}" hidden>
@@ -123,7 +123,7 @@
 
         @if($editable && isset($urls['create_section']))
             <div>
-                <x-forms::link-button :url="$urls['create_section']" color="outline" start-icon="plus">{{ $strings['add_section'] }}</x-forms::link-button>
+                <x-forms::link-button :url="$urls['create_section']" color="outline-secondary" start-icon="plus">{{ $strings['add_section'] }}</x-forms::link-button>
             </div>
         @endif
 

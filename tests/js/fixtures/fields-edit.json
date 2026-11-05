@@ -1,0 +1,843 @@
+{
+    "status": null,
+    "layout": "layouts.app",
+    "layout_section": "content",
+    "form": {
+        "stencil": 1,
+        "id": "form-builder-field",
+        "action": "http://localhost/forms/job-application/fields/references",
+        "method": "PATCH",
+        "operation": "edit",
+        "submit": "Save",
+        "state": {
+            "key": "references",
+            "label": {
+                "en": "References",
+                "dv": null,
+                "max_rows": null,
+                "add_label": null,
+                "row_label": null
+            },
+            "help": {
+                "en": null,
+                "dv": null,
+                "max_rows": null,
+                "add_label": null,
+                "row_label": null
+            },
+            "placeholder": {
+                "en": null,
+                "dv": null,
+                "max_rows": null,
+                "add_label": null,
+                "row_label": null
+            },
+            "required": false,
+            "span": "",
+            "section": "references",
+            "settings": {
+                "min_rows": null,
+                "max_rows": 3,
+                "columns": null,
+                "add_label": {
+                    "en": "Add a reference",
+                    "dv": null,
+                    "max_rows": null,
+                    "add_label": null,
+                    "row_label": null
+                },
+                "row_label": {
+                    "en": "Reference",
+                    "dv": null,
+                    "max_rows": null,
+                    "add_label": null,
+                    "row_label": null
+                }
+            },
+            "conditions": []
+        },
+        "live": null,
+        "components": [
+            {
+                "type": "section",
+                "key": "section-0",
+                "props": {
+                    "heading": "Field",
+                    "columns": {
+                        "default": 1,
+                        "md": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "text",
+                        "key": "key",
+                        "name": "key",
+                        "component": "Text",
+                        "props": {
+                            "label": "Key",
+                            "required": true,
+                            "help": "Lowercase letters, numbers and underscores, starting with a letter. Answers are stored under it.",
+                            "maxLength": 64
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-type_name",
+                        "props": {
+                            "name": "type_name",
+                            "label": "Type",
+                            "value": "Repeating group"
+                        }
+                    },
+                    {
+                        "type": "group",
+                        "key": "group-0-2",
+                        "props": {
+                            "columns": {
+                                "default": 1,
+                                "md": 2
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "text",
+                                "key": "label.en",
+                                "name": "label[en]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Label (English)",
+                                    "required": true,
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "label.dv",
+                                "name": "label[dv]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Label (ދިވެހި)",
+                                    "thaana": true,
+                                    "maxLength": 255,
+                                    "dir": "rtl",
+                                    "lang": "dv"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "label.max_rows",
+                                "name": "label[max_rows]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Label (max_rows)",
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "label.add_label",
+                                "name": "label[add_label]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Label (add_label)",
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "label.row_label",
+                                "name": "label[row_label]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Label (row_label)",
+                                    "maxLength": 255
+                                }
+                            }
+                        ],
+                        "span": {
+                            "md": "full"
+                        }
+                    },
+                    {
+                        "type": "group",
+                        "key": "group-0-3",
+                        "props": {
+                            "columns": {
+                                "default": 1,
+                                "md": 2
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "textarea",
+                                "key": "help.en",
+                                "name": "help[en]",
+                                "component": "Textarea",
+                                "props": {
+                                    "label": "Help text (English)",
+                                    "rows": 3
+                                }
+                            },
+                            {
+                                "type": "textarea",
+                                "key": "help.dv",
+                                "name": "help[dv]",
+                                "component": "Textarea",
+                                "props": {
+                                    "label": "Help text (ދިވެހި)",
+                                    "rows": 3,
+                                    "thaana": true,
+                                    "dir": "rtl",
+                                    "lang": "dv"
+                                }
+                            },
+                            {
+                                "type": "textarea",
+                                "key": "help.max_rows",
+                                "name": "help[max_rows]",
+                                "component": "Textarea",
+                                "props": {
+                                    "label": "Help text (max_rows)",
+                                    "rows": 3
+                                }
+                            },
+                            {
+                                "type": "textarea",
+                                "key": "help.add_label",
+                                "name": "help[add_label]",
+                                "component": "Textarea",
+                                "props": {
+                                    "label": "Help text (add_label)",
+                                    "rows": 3
+                                }
+                            },
+                            {
+                                "type": "textarea",
+                                "key": "help.row_label",
+                                "name": "help[row_label]",
+                                "component": "Textarea",
+                                "props": {
+                                    "label": "Help text (row_label)",
+                                    "rows": 3
+                                }
+                            }
+                        ],
+                        "span": {
+                            "md": "full"
+                        }
+                    },
+                    {
+                        "type": "group",
+                        "key": "group-0-4",
+                        "props": {
+                            "columns": {
+                                "default": 1,
+                                "md": 2
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "text",
+                                "key": "placeholder.en",
+                                "name": "placeholder[en]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Placeholder (English)",
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "placeholder.dv",
+                                "name": "placeholder[dv]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Placeholder (ދިވެހި)",
+                                    "thaana": true,
+                                    "maxLength": 255,
+                                    "dir": "rtl",
+                                    "lang": "dv"
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "placeholder.max_rows",
+                                "name": "placeholder[max_rows]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Placeholder (max_rows)",
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "placeholder.add_label",
+                                "name": "placeholder[add_label]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Placeholder (add_label)",
+                                    "maxLength": 255
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "placeholder.row_label",
+                                "name": "placeholder[row_label]",
+                                "component": "Text",
+                                "props": {
+                                    "label": "Placeholder (row_label)",
+                                    "maxLength": 255
+                                }
+                            }
+                        ],
+                        "span": {
+                            "md": "full"
+                        }
+                    },
+                    {
+                        "type": "checkbox",
+                        "key": "required",
+                        "name": "required",
+                        "component": "Checkbox",
+                        "props": {
+                            "label": "Required"
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "key": "span",
+                        "name": "span",
+                        "component": "Select",
+                        "props": {
+                            "label": "Width",
+                            "options": [
+                                {
+                                    "value": "",
+                                    "label": "One column"
+                                },
+                                {
+                                    "value": "2",
+                                    "label": "Two columns"
+                                },
+                                {
+                                    "value": "full",
+                                    "label": "Full width"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "key": "section",
+                        "name": "section",
+                        "component": "Select",
+                        "props": {
+                            "label": "Section",
+                            "required": true,
+                            "options": [
+                                {
+                                    "value": "personal",
+                                    "label": "Personal details"
+                                },
+                                {
+                                    "value": "references",
+                                    "label": "References"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "key": "section-1",
+                "props": {
+                    "heading": "Settings",
+                    "columns": {
+                        "default": 1,
+                        "md": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "group",
+                        "key": "group-1-0",
+                        "props": {
+                            "columns": {
+                                "default": 1,
+                                "md": 2
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "text",
+                                "key": "settings.min_rows",
+                                "name": "settings[min_rows]",
+                                "component": "Number",
+                                "props": {
+                                    "label": "Fewest rows",
+                                    "min": 0,
+                                    "step": 1
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "settings.max_rows",
+                                "name": "settings[max_rows]",
+                                "component": "Number",
+                                "props": {
+                                    "label": "Most rows",
+                                    "min": 1,
+                                    "step": 1
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "key": "settings.columns",
+                                "name": "settings[columns]",
+                                "component": "Number",
+                                "props": {
+                                    "label": "Columns",
+                                    "min": 1,
+                                    "max": 4,
+                                    "step": 1
+                                }
+                            },
+                            {
+                                "type": "group",
+                                "key": "group-1-0-3",
+                                "props": {
+                                    "columns": {
+                                        "default": 1,
+                                        "md": 2
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "type": "text",
+                                        "key": "settings.add_label.en",
+                                        "name": "settings[add_label][en]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Add button label (English)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.add_label.dv",
+                                        "name": "settings[add_label][dv]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Add button label (ދިވެހި)",
+                                            "thaana": true,
+                                            "maxLength": 255,
+                                            "dir": "rtl",
+                                            "lang": "dv"
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.add_label.max_rows",
+                                        "name": "settings[add_label][max_rows]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Add button label (max_rows)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.add_label.add_label",
+                                        "name": "settings[add_label][add_label]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Add button label (add_label)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.add_label.row_label",
+                                        "name": "settings[add_label][row_label]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Add button label (row_label)",
+                                            "maxLength": 255
+                                        }
+                                    }
+                                ],
+                                "span": {
+                                    "md": "full"
+                                }
+                            },
+                            {
+                                "type": "group",
+                                "key": "group-1-0-4",
+                                "props": {
+                                    "columns": {
+                                        "default": 1,
+                                        "md": 2
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "type": "text",
+                                        "key": "settings.row_label.en",
+                                        "name": "settings[row_label][en]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Row heading (English)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.row_label.dv",
+                                        "name": "settings[row_label][dv]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Row heading (ދިވެހި)",
+                                            "thaana": true,
+                                            "maxLength": 255,
+                                            "dir": "rtl",
+                                            "lang": "dv"
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.row_label.max_rows",
+                                        "name": "settings[row_label][max_rows]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Row heading (max_rows)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.row_label.add_label",
+                                        "name": "settings[row_label][add_label]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Row heading (add_label)",
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "settings.row_label.row_label",
+                                        "name": "settings[row_label][row_label]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Row heading (row_label)",
+                                            "maxLength": 255
+                                        }
+                                    }
+                                ],
+                                "span": {
+                                    "md": "full"
+                                }
+                            }
+                        ],
+                        "span": {
+                            "md": "full"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "key": "section-2",
+                "props": {
+                    "heading": "Conditions",
+                    "description": "Show this field only when…"
+                },
+                "children": [
+                    {
+                        "type": "repeater",
+                        "key": "conditions",
+                        "name": "conditions",
+                        "props": {
+                            "label": "Conditions",
+                            "showLabel": false,
+                            "addLabel": "Add a condition",
+                            "removeLabel": "Remove",
+                            "rowLabel": "Condition :number",
+                            "rowLabels": [],
+                            "rowKeys": [],
+                            "nextRow": 0,
+                            "rowPlaceholder": "__ROW__",
+                            "template": {
+                                "type": "group",
+                                "key": "conditions-__ROW__",
+                                "props": {
+                                    "columns": {
+                                        "default": 1,
+                                        "md": 3
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "type": "select",
+                                        "key": "conditions.__ROW__.field",
+                                        "name": "conditions[__ROW__][field]",
+                                        "component": "Select",
+                                        "props": {
+                                            "label": "Field",
+                                            "required": true,
+                                            "options": [
+                                                {
+                                                    "value": "full_name",
+                                                    "label": "Full name (full_name)"
+                                                },
+                                                {
+                                                    "value": "age",
+                                                    "label": "Age (age)"
+                                                },
+                                                {
+                                                    "value": "applicant_type",
+                                                    "label": "Applicant type (applicant_type)"
+                                                },
+                                                {
+                                                    "value": "company_name",
+                                                    "label": "Company name (company_name)"
+                                                },
+                                                {
+                                                    "value": "atoll",
+                                                    "label": "Atoll (atoll)"
+                                                },
+                                                {
+                                                    "value": "island",
+                                                    "label": "Island (island)"
+                                                },
+                                                {
+                                                    "value": "skills",
+                                                    "label": "Skills (skills)"
+                                                },
+                                                {
+                                                    "value": "available_from",
+                                                    "label": "Available from (available_from)"
+                                                },
+                                                {
+                                                    "value": "agree",
+                                                    "label": "I agree to be contacted (agree)"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "select",
+                                        "key": "conditions.__ROW__.operator",
+                                        "name": "conditions[__ROW__][operator]",
+                                        "component": "Select",
+                                        "props": {
+                                            "label": "Is",
+                                            "required": true,
+                                            "options": [
+                                                {
+                                                    "value": "in",
+                                                    "label": "one of"
+                                                },
+                                                {
+                                                    "value": "not_in",
+                                                    "label": "not one of"
+                                                },
+                                                {
+                                                    "value": "checked",
+                                                    "label": "checked or filled"
+                                                },
+                                                {
+                                                    "value": "not_checked",
+                                                    "label": "not checked or empty"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "conditions.__ROW__.values",
+                                        "name": "conditions[__ROW__][values]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Values",
+                                            "help": "Option values, separated by commas.",
+                                            "maxLength": 1000
+                                        },
+                                        "conditions": [
+                                            {
+                                                "effect": "hidden",
+                                                "field": "conditions.__ROW__.operator",
+                                                "selector": "#conditions-__ROW__-operator",
+                                                "values": [
+                                                    "checked",
+                                                    "not_checked"
+                                                ],
+                                                "checkbox": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "record": {
+        "id": 1,
+        "key": "job-application",
+        "name": "Job application",
+        "description": "Apply for a position",
+        "status": "published",
+        "status_label": "Published",
+        "is_locked": false,
+        "accepts_entries": true,
+        "published_version": 1,
+        "draft_version": null,
+        "has_draft": false,
+        "entries_count": 0,
+        "updated_at": "2026-11-06T10:00:00+00:00",
+        "urls": {
+            "show": "http://localhost/forms/job-application",
+            "edit": "http://localhost/forms/job-application/edit",
+            "entries": "http://localhost/forms/job-application/entries",
+            "preview": "http://localhost/forms/job-application/preview",
+            "destroy": "http://localhost/forms/job-application",
+            "fill": "http://localhost/f/job-application"
+        }
+    },
+    "type": {
+        "key": "repeater",
+        "name": "Repeating group",
+        "icon": "copy-plus",
+        "group": "layout",
+        "takes_input": true,
+        "has_options": false,
+        "has_fields": true,
+        "watchable": false,
+        "checkbox": false
+    },
+    "field": {
+        "key": "references",
+        "type": "repeater",
+        "label": "References",
+        "settings": {
+            "max_rows": 3,
+            "add_label": "Add a reference",
+            "row_label": "Reference"
+        },
+        "fields": [
+            {
+                "key": "name",
+                "type": "text",
+                "label": "Name",
+                "required": true,
+                "settings": {
+                    "thaana": true
+                }
+            },
+            {
+                "key": "relationship",
+                "type": "select",
+                "label": "Relationship",
+                "settings": {
+                    "options": [
+                        {
+                            "value": "work",
+                            "label": "Work"
+                        },
+                        {
+                            "value": "other",
+                            "label": "Other"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "relationship_other",
+                "type": "text",
+                "label": "Describe the relationship",
+                "conditions": [
+                    {
+                        "field": "relationship",
+                        "operator": "in",
+                        "values": [
+                            "other"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "title": "Edit References",
+    "back_url": "http://localhost/forms/job-application",
+    "strings": {
+        "back": "Back",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "view": "View",
+        "print": "Print",
+        "actions": "Actions",
+        "confirm_delete": "Delete this? This can't be undone.",
+        "previous_page": "Previous",
+        "next_page": "Next",
+        "page_of": "Page :page of :pages",
+        "forms": "Forms",
+        "settings": "Settings",
+        "preview": "Preview",
+        "publish": "Publish",
+        "confirm_publish": "Publish these changes? People will fill the new version from now on.",
+        "discard": "Discard changes",
+        "confirm_discard": "Discard the unpublished changes? The published version stays.",
+        "export": "Export",
+        "versions": "Versions",
+        "entries": "Entries",
+        "fill": "Open the form",
+        "draft_notice": "You're editing a draft. People keep filling version :number until you publish.",
+        "unpublished_notice": "This form isn't published yet. Publish it so people can fill it.",
+        "locked_notice": "This form is defined in code. Change it there; the builder only shows it.",
+        "wizard": "One section at a time (wizard)",
+        "add_section": "Add section",
+        "add_field": "Add field",
+        "add_field_to": "Add a field to :section",
+        "add_field_to_group": "Add a field to :group",
+        "choose_type": "Field type",
+        "no_fields": "No fields yet.",
+        "required": "Required",
+        "shown_when": "Shown when",
+        "depends_on": "Depends on :field",
+        "missing_type": "This field type isn't available any more.",
+        "move_up": "Move up",
+        "move_down": "Move down",
+        "move": "Move :item",
+        "field_key": "Key",
+        "section": "Section",
+        "step": "Step :number",
+        "instructions": "To move an item with the keyboard, press Space on its handle, use the arrow keys, then press Space again to drop it or Escape to cancel.",
+        "picked_up": ":item picked up. Position :position of :total.",
+        "moved": ":item moved to position :position of :total.",
+        "dropped": ":item dropped at position :position of :total.",
+        "cancelled": "Move cancelled. :item is back at position :position of :total.",
+        "order_saved": "Order saved.",
+        "order_failed": "The order couldn't be saved. Try again.",
+        "preview_title": "Preview of :form",
+        "preview_notice": "This is how the form looks. Submitting checks the answers but doesn't save them.",
+        "version_number": "Version :number",
+        "draft": "Draft",
+        "current": "Current",
+        "published_at": "Published",
+        "author": "By",
+        "fields_count": "Fields",
+        "entries_count": "Entries",
+        "assistant": "Assistant",
+        "assistant_title": "Build with the assistant",
+        "assistant_help": "Describe the form or the changes you want. The assistant changes the draft; review it before you publish.",
+        "assistant_prompt": "What should the form ask?",
+        "assistant_submit": "Ask the assistant"
+    }
+}

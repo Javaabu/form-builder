@@ -1,0 +1,81 @@
+{
+    "status": null,
+    "layout": "layouts.app",
+    "layout_section": "content",
+    "forms": [
+        {
+            "id": 1,
+            "key": "job-application",
+            "name": "Job application",
+            "description": "Apply for a position",
+            "status": "published",
+            "status_label": "Published",
+            "is_locked": false,
+            "accepts_entries": true,
+            "published_version": 1,
+            "draft_version": null,
+            "has_draft": false,
+            "entries_count": 0,
+            "updated_at": "2026-11-06T10:00:00+00:00",
+            "urls": {
+                "show": "http://localhost/forms/job-application",
+                "edit": "http://localhost/forms/job-application/edit",
+                "entries": "http://localhost/forms/job-application/entries",
+                "preview": "http://localhost/forms/job-application/preview",
+                "destroy": "http://localhost/forms/job-application",
+                "fill": "http://localhost/f/job-application"
+            }
+        }
+    ],
+    "pagination": {
+        "current_page": 1,
+        "last_page": 1,
+        "per_page": 20,
+        "total": 1
+    },
+    "search": "",
+    "can": {
+        "create": true
+    },
+    "urls": {
+        "index": "http://localhost/forms",
+        "create": "http://localhost/forms/create",
+        "import": "http://localhost/forms/import"
+    },
+    "strings": {
+        "back": "Back",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "view": "View",
+        "print": "Print",
+        "actions": "Actions",
+        "confirm_delete": "Delete this? This can't be undone.",
+        "previous_page": "Previous",
+        "next_page": "Next",
+        "page_of": "Page :page of :pages",
+        "title": "Forms",
+        "description": "Build forms, publish them and read their entries.",
+        "create": "New form",
+        "import": "Import",
+        "import_title": "Import a form",
+        "import_description": "Upload a form exported from the form builder, or paste its JSON. A form with the same key gets a new draft; otherwise a new form is made.",
+        "import_file": "Export file",
+        "import_json": "Or paste the JSON",
+        "import_key": "Key",
+        "import_key_help": "Leave empty to use the key in the export.",
+        "import_submit": "Import form",
+        "search": "Search forms",
+        "search_button": "Search",
+        "empty": "No forms yet.",
+        "no_results": "No forms match your search.",
+        "name": "Name",
+        "key": "Key",
+        "status": "Status",
+        "version": "Version",
+        "entries": "Entries",
+        "locked": "Defined in code",
+        "open_builder": "Open"
+    }
+}

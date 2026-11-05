@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form builder: Blade scripts</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Blade scripts</h1>
+        <p>
+          A repeating group as <code>form-builder::stencil.repeater</code> renders it, with
+          <code>form-builder::repeater</code>: Add copies the template row, Remove takes one out, and the buttons follow
+          the most rows (3). <a href="./react.html">React example</a> ·
+          <button type="button" id="direction">RTL / ދިވެހި</button>
+        </p>
+      </header>
+
+      <form id="example-form">
+        <div
+          class="form-builder-repeater"
+          id="references"
+          data-form-builder-repeater
+          data-min=""
+          data-max="3"
+          data-next="1"
+          data-placeholder="__ROW__"
+          data-row-label="Reference :number"
+          role="group"
+          aria-labelledby="references-label"
+        >
+          <div class="form-builder-repeater-header">
+            <span class="form-builder-repeater-label" id="references-label"> References </span>
+          </div>
+
+          <div class="form-builder-repeater-rows" data-form-builder-repeater-rows>
+            <div class="form-builder-repeater-row" data-form-builder-repeater-row data-row="references-0">
+              <div class="form-builder-repeater-row-header">
+                <span class="form-builder-repeater-row-label" data-form-builder-repeater-row-label>Reference 1</span>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger form-builder-repeater-remove"
+                  data-form-builder-repeater-remove
+                >
+                  Remove
+                </button>
+              </div>
+              <div class="stencil-item" data-stencil-key="references.0.name" data-stencil-hash="80f50722491b">
+                <div
+                  class="min-w-0 @container/form-field w-full mb-4"
+                  data-slot="form-field"
+                  data-label-layout="stacked"
+                >
+                  <div class="gap-2 grid">
+                    <div class="gap-2 flex items-center justify-between">
+                      <label
+                        class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                        for="references-0-name"
+                        data-slot="label"
+                      >
+                        Name
+                        <span class="required text-destructive" data-slot="required-marker" aria-hidden="true">*</span>
+                      </label>
+                    </div>
+                    <div class="min-w-0 gap-1.5 grid">
+                      <input
+                        class="border-input hover:border-primary-5 focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-card px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-2 aria-invalid:ring-3 md:text-sm w-full min-w-0 outline-none file:inline-flex file:border-0 file:bg-transparent file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                        required="required"
+                        dir="rtl"
+                        lang="dv"
+                        data-thaana=""
+                        maxlength="255"
+                        data-slot="input"
+                        type="text"
+                        value=""
+                        name="references[0][name]"
+                        id="references-0-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="stencil-item" data-stencil-key="references.0.relationship" data-stencil-hash="db953ea96638">
+                <div
+                  class="min-w-0 @container/form-field w-full mb-4"
+                  data-slot="form-field"
+                  data-label-layout="stacked"
+                >
+                  <div class="gap-2 grid">
+                    <div class="gap-2 flex items-center justify-between">
+                      <label
+                        class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                        for="references-0-relationship"
+                        data-slot="label"
+                      >
+                        Relationship
+                      </label>
+                    </div>
+                    <div class="min-w-0 gap-1.5 grid">
+                      <div
+                        class="group/native-select relative w-full has-[select:disabled]:opacity-50"
+                        data-slot="native-select-wrapper"
+                      >
+                        <select
+                          class="border-input hover:border-primary-5 placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-8 w-full min-w-0 appearance-none rounded-lg border bg-card py-1 pe-8 ps-2.5 text-sm transition-colors select-none focus-visible:ring-2 aria-invalid:ring-3 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] data-[size=sm]:py-0.5 outline-none disabled:pointer-events-none disabled:cursor-not-allowed"
+                          data-slot="native-select"
+                          name="references[0][relationship]"
+                          id="references-0-relationship"
+                        >
+                          <option value="work" class="bg-[Canvas] text-[CanvasText]">Work</option>
+                          <option value="other" class="bg-[Canvas] text-[CanvasText]">Other</option>
+                        </select>
+                        <svg
+                          class="forms-icon text-muted-foreground top-1/2 end-2.5 size-4 -translate-y-1/2 pointer-events-none absolute select-none"
+                          aria-hidden="true"
+                          focusable="false"
+                          data-slot="native-select-icon"
+                          data-icon-name="chevron-down"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="stencil-item"
+                data-stencil-key="references.0.relationship_other"
+                data-stencil-hash="afa0da25c909"
+              >
+                <div
+                  data-enable-elem="#references-0-relationship"
+                  data-enable-section-value="other"
+                  data-hide-fields="true"
+                >
+                  <div
+                    class="min-w-0 @container/form-field w-full mb-4"
+                    data-slot="form-field"
+                    data-label-layout="stacked"
+                  >
+                    <div class="gap-2 grid">
+                      <div class="gap-2 flex items-center justify-between">
+                        <label
+                          class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                          for="references-0-relationship_other"
+                          data-slot="label"
+                        >
+                          Describe the relationship
+                        </label>
+                      </div>
+                      <div class="min-w-0 gap-1.5 grid">
+                        <input
+                          class="border-input hover:border-primary-5 focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-card px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-2 aria-invalid:ring-3 md:text-sm w-full min-w-0 outline-none file:inline-flex file:border-0 file:bg-transparent file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                          maxlength="255"
+                          data-slot="input"
+                          type="text"
+                          value=""
+                          name="references[0][relationship_other]"
+                          id="references-0-relationship_other"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <template data-form-builder-repeater-template>
+            <div class="form-builder-repeater-row" data-form-builder-repeater-row data-row="references-__ROW__">
+              <div class="form-builder-repeater-row-header">
+                <span class="form-builder-repeater-row-label" data-form-builder-repeater-row-label
+                  >Reference :number</span
+                >
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-danger form-builder-repeater-remove"
+                  data-form-builder-repeater-remove
+                >
+                  Remove
+                </button>
+              </div>
+              <div class="stencil-item" data-stencil-key="references.__ROW__.name" data-stencil-hash="80f50722491b">
+                <div
+                  class="min-w-0 @container/form-field w-full mb-4"
+                  data-slot="form-field"
+                  data-label-layout="stacked"
+                >
+                  <div class="gap-2 grid">
+                    <div class="gap-2 flex items-center justify-between">
+                      <label
+                        class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                        for="references-__ROW__-name"
+                        data-slot="label"
+                      >
+                        Name
+                        <span class="required text-destructive" data-slot="required-marker" aria-hidden="true">*</span>
+                      </label>
+                    </div>
+                    <div class="min-w-0 gap-1.5 grid">
+                      <input
+                        class="border-input hover:border-primary-5 focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-card px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-2 aria-invalid:ring-3 md:text-sm w-full min-w-0 outline-none file:inline-flex file:border-0 file:bg-transparent file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                        required="required"
+                        dir="rtl"
+                        lang="dv"
+                        data-thaana=""
+                        maxlength="255"
+                        data-slot="input"
+                        type="text"
+                        value=""
+                        name="references[__ROW__][name]"
+                        id="references-__ROW__-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="stencil-item"
+                data-stencil-key="references.__ROW__.relationship"
+                data-stencil-hash="db953ea96638"
+              >
+                <div
+                  class="min-w-0 @container/form-field w-full mb-4"
+                  data-slot="form-field"
+                  data-label-layout="stacked"
+                >
+                  <div class="gap-2 grid">
+                    <div class="gap-2 flex items-center justify-between">
+                      <label
+                        class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                        for="references-__ROW__-relationship"
+                        data-slot="label"
+                      >
+                        Relationship
+                      </label>
+                    </div>
+                    <div class="min-w-0 gap-1.5 grid">
+                      <div
+                        class="group/native-select relative w-full has-[select:disabled]:opacity-50"
+                        data-slot="native-select-wrapper"
+                      >
+                        <select
+                          class="border-input hover:border-primary-5 placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-8 w-full min-w-0 appearance-none rounded-lg border bg-card py-1 pe-8 ps-2.5 text-sm transition-colors select-none focus-visible:ring-2 aria-invalid:ring-3 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] data-[size=sm]:py-0.5 outline-none disabled:pointer-events-none disabled:cursor-not-allowed"
+                          data-slot="native-select"
+                          name="references[__ROW__][relationship]"
+                          id="references-__ROW__-relationship"
+                        >
+                          <option value="work" class="bg-[Canvas] text-[CanvasText]">Work</option>
+                          <option value="other" class="bg-[Canvas] text-[CanvasText]">Other</option>
+                        </select>
+                        <svg
+                          class="forms-icon text-muted-foreground top-1/2 end-2.5 size-4 -translate-y-1/2 pointer-events-none absolute select-none"
+                          aria-hidden="true"
+                          focusable="false"
+                          data-slot="native-select-icon"
+                          data-icon-name="chevron-down"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="stencil-item"
+                data-stencil-key="references.__ROW__.relationship_other"
+                data-stencil-hash="dc9171d18888"
+              >
+                <div
+                  data-enable-elem="#references-__ROW__-relationship"
+                  data-enable-section-value="other"
+                  data-hide-fields="true"
+                >
+                  <div
+                    class="min-w-0 @container/form-field w-full mb-4"
+                    data-slot="form-field"
+                    data-label-layout="stacked"
+                  >
+                    <div class="gap-2 grid">
+                      <div class="gap-2 flex items-center justify-between">
+                        <label
+                          class="gap-2 text-sm leading-snug font-normal group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed"
+                          for="references-__ROW__-relationship_other"
+                          data-slot="label"
+                        >
+                          Describe the relationship
+                        </label>
+                      </div>
+                      <div class="min-w-0 gap-1.5 grid">
+                        <input
+                          class="border-input hover:border-primary-5 focus-visible:border-primary focus-visible:ring-primary/20 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-card px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-2 aria-invalid:ring-3 md:text-sm w-full min-w-0 outline-none file:inline-flex file:border-0 file:bg-transparent file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                          maxlength="255"
+                          data-slot="input"
+                          type="text"
+                          value=""
+                          name="references[__ROW__][relationship_other]"
+                          id="references-__ROW__-relationship_other"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <div class="form-builder-repeater-footer">
+            <button type="button" data-form-builder-repeater-add>Add a reference</button>
+          </div>
+        </div>
+
+        <button type="submit">Show what would be sent</button>
+      </form>
+
+      <pre id="log" aria-live="polite"></pre>
+    </main>
+    <script type="module" src="./blade.ts"></script>
+  </body>
+</html>

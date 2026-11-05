@@ -1,0 +1,925 @@
+{
+    "status": "Section added.",
+    "layout": "layouts.app",
+    "layout_section": "content",
+    "form": {
+        "id": 1,
+        "key": "job-application",
+        "name": "Job application",
+        "description": "Apply for a position",
+        "status": "changed",
+        "status_label": "Published, with unpublished changes",
+        "is_locked": false,
+        "accepts_entries": true,
+        "published_version": 1,
+        "draft_version": 2,
+        "has_draft": true,
+        "entries_count": 0,
+        "updated_at": "2026-11-06T10:00:00+00:00",
+        "urls": {
+            "show": "http://localhost/forms/job-application",
+            "edit": "http://localhost/forms/job-application/edit",
+            "entries": "http://localhost/forms/job-application/entries",
+            "preview": "http://localhost/forms/job-application/preview",
+            "destroy": "http://localhost/forms/job-application",
+            "fill": "http://localhost/f/job-application"
+        }
+    },
+    "version": {
+        "id": 2,
+        "number": 2,
+        "is_draft": true,
+        "is_current": false,
+        "published_at": null,
+        "author": "އަޙްމަދު",
+        "entries_count": 0,
+        "fields_count": 10
+    },
+    "form_layout": "sections",
+    "sections": [
+        {
+            "key": "personal",
+            "title": "Personal details",
+            "description": null,
+            "columns": 2,
+            "conditions": [],
+            "position": 0,
+            "is_first": true,
+            "is_last": false,
+            "urls": {
+                "edit": "http://localhost/forms/job-application/sections/personal/edit",
+                "destroy": "http://localhost/forms/job-application/sections/personal",
+                "move": "http://localhost/forms/job-application/sections/personal/move",
+                "create_field": "http://localhost/forms/job-application/sections/personal/fields/create",
+                "order_fields": "http://localhost/forms/job-application/sections/personal/fields/order"
+            },
+            "fields": [
+                {
+                    "key": "full_name",
+                    "path": "full_name",
+                    "type": "text",
+                    "type_name": "Short text",
+                    "icon": "type",
+                    "label": "Full name",
+                    "required": true,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 0,
+                    "is_first": true,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/full_name/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/full_name",
+                        "move": "http://localhost/forms/job-application/fields/full_name/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "age",
+                    "path": "age",
+                    "type": "number",
+                    "type_name": "Number",
+                    "icon": "hash",
+                    "label": "Age",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 1,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/age/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/age",
+                        "move": "http://localhost/forms/job-application/fields/age/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "applicant_type",
+                    "path": "applicant_type",
+                    "type": "select",
+                    "type_name": "Dropdown",
+                    "icon": "chevron-down",
+                    "label": "Applicant type",
+                    "required": true,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 2,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/applicant_type/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/applicant_type",
+                        "move": "http://localhost/forms/job-application/fields/applicant_type/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "company_name",
+                    "path": "company_name",
+                    "type": "text",
+                    "type_name": "Short text",
+                    "icon": "type",
+                    "label": "Company name",
+                    "required": true,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [
+                        "Applicant type is one of Company"
+                    ],
+                    "position": 3,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/company_name/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/company_name",
+                        "move": "http://localhost/forms/job-application/fields/company_name/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "atoll",
+                    "path": "atoll",
+                    "type": "select",
+                    "type_name": "Dropdown",
+                    "icon": "chevron-down",
+                    "label": "Atoll",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 4,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/atoll/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/atoll",
+                        "move": "http://localhost/forms/job-application/fields/atoll/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "island",
+                    "path": "island",
+                    "type": "select",
+                    "type_name": "Dropdown",
+                    "icon": "chevron-down",
+                    "label": "Island",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": "atoll",
+                    "conditions": [],
+                    "position": 5,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/island/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/island",
+                        "move": "http://localhost/forms/job-application/fields/island/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "skills",
+                    "path": "skills",
+                    "type": "checkboxes",
+                    "type_name": "Checkboxes",
+                    "icon": "list-checks",
+                    "label": "Skills",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 6,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/skills/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/skills",
+                        "move": "http://localhost/forms/job-application/fields/skills/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "available_from",
+                    "path": "available_from",
+                    "type": "date",
+                    "type_name": "Date",
+                    "icon": "calendar",
+                    "label": "Available from",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 7,
+                    "is_first": false,
+                    "is_last": true,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/available_from/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/available_from",
+                        "move": "http://localhost/forms/job-application/fields/available_from/move"
+                    },
+                    "fields": []
+                }
+            ]
+        },
+        {
+            "key": "references",
+            "title": "References",
+            "description": null,
+            "columns": null,
+            "conditions": [],
+            "position": 1,
+            "is_first": false,
+            "is_last": false,
+            "urls": {
+                "edit": "http://localhost/forms/job-application/sections/references/edit",
+                "destroy": "http://localhost/forms/job-application/sections/references",
+                "move": "http://localhost/forms/job-application/sections/references/move",
+                "create_field": "http://localhost/forms/job-application/sections/references/fields/create",
+                "order_fields": "http://localhost/forms/job-application/sections/references/fields/order"
+            },
+            "fields": [
+                {
+                    "key": "references_note",
+                    "path": "references_note",
+                    "type": "paragraph",
+                    "type_name": "Paragraph",
+                    "icon": "pilcrow",
+                    "label": "Give up to three people we can call.",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 0,
+                    "is_first": true,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/references_note/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/references_note",
+                        "move": "http://localhost/forms/job-application/fields/references_note/move"
+                    },
+                    "fields": []
+                },
+                {
+                    "key": "references",
+                    "path": "references",
+                    "type": "repeater",
+                    "type_name": "Repeating group",
+                    "icon": "copy-plus",
+                    "label": "References",
+                    "required": false,
+                    "missing_type": false,
+                    "has_fields": true,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 1,
+                    "is_first": false,
+                    "is_last": false,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/references/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/references",
+                        "move": "http://localhost/forms/job-application/fields/references/move",
+                        "create_field": "http://localhost/forms/job-application/sections/references/fields/create?group=references",
+                        "order_fields": "http://localhost/forms/job-application/sections/references/fields/order?group=references"
+                    },
+                    "fields": [
+                        {
+                            "key": "name",
+                            "path": "references.name",
+                            "type": "text",
+                            "type_name": "Short text",
+                            "icon": "type",
+                            "label": "Name",
+                            "required": true,
+                            "missing_type": false,
+                            "has_fields": false,
+                            "depends_on": null,
+                            "conditions": [],
+                            "position": 0,
+                            "is_first": true,
+                            "is_last": false,
+                            "urls": {
+                                "edit": "http://localhost/forms/job-application/fields/references.name/edit",
+                                "destroy": "http://localhost/forms/job-application/fields/references.name",
+                                "move": "http://localhost/forms/job-application/fields/references.name/move"
+                            },
+                            "fields": []
+                        },
+                        {
+                            "key": "relationship",
+                            "path": "references.relationship",
+                            "type": "select",
+                            "type_name": "Dropdown",
+                            "icon": "chevron-down",
+                            "label": "Relationship",
+                            "required": false,
+                            "missing_type": false,
+                            "has_fields": false,
+                            "depends_on": null,
+                            "conditions": [],
+                            "position": 1,
+                            "is_first": false,
+                            "is_last": false,
+                            "urls": {
+                                "edit": "http://localhost/forms/job-application/fields/references.relationship/edit",
+                                "destroy": "http://localhost/forms/job-application/fields/references.relationship",
+                                "move": "http://localhost/forms/job-application/fields/references.relationship/move"
+                            },
+                            "fields": []
+                        },
+                        {
+                            "key": "relationship_other",
+                            "path": "references.relationship_other",
+                            "type": "text",
+                            "type_name": "Short text",
+                            "icon": "type",
+                            "label": "Describe the relationship",
+                            "required": false,
+                            "missing_type": false,
+                            "has_fields": false,
+                            "depends_on": null,
+                            "conditions": [
+                                "relationship is one of other"
+                            ],
+                            "position": 2,
+                            "is_first": false,
+                            "is_last": true,
+                            "urls": {
+                                "edit": "http://localhost/forms/job-application/fields/references.relationship_other/edit",
+                                "destroy": "http://localhost/forms/job-application/fields/references.relationship_other",
+                                "move": "http://localhost/forms/job-application/fields/references.relationship_other/move"
+                            },
+                            "fields": []
+                        }
+                    ]
+                },
+                {
+                    "key": "agree",
+                    "path": "agree",
+                    "type": "checkbox",
+                    "type_name": "Checkbox",
+                    "icon": "square-check",
+                    "label": "I agree to be contacted",
+                    "required": true,
+                    "missing_type": false,
+                    "has_fields": false,
+                    "depends_on": null,
+                    "conditions": [],
+                    "position": 2,
+                    "is_first": false,
+                    "is_last": true,
+                    "urls": {
+                        "edit": "http://localhost/forms/job-application/fields/agree/edit",
+                        "destroy": "http://localhost/forms/job-application/fields/agree",
+                        "move": "http://localhost/forms/job-application/fields/agree/move"
+                    },
+                    "fields": []
+                }
+            ]
+        },
+        {
+            "key": "extra",
+            "title": "Extra",
+            "description": null,
+            "columns": null,
+            "conditions": [],
+            "position": 2,
+            "is_first": false,
+            "is_last": true,
+            "urls": {
+                "edit": "http://localhost/forms/job-application/sections/extra/edit",
+                "destroy": "http://localhost/forms/job-application/sections/extra",
+                "move": "http://localhost/forms/job-application/sections/extra/move",
+                "create_field": "http://localhost/forms/job-application/sections/extra/fields/create",
+                "order_fields": "http://localhost/forms/job-application/sections/extra/fields/order"
+            },
+            "fields": []
+        }
+    ],
+    "types": [
+        {
+            "key": "text",
+            "label": "Text",
+            "types": [
+                {
+                    "key": "text",
+                    "name": "Short text",
+                    "icon": "type",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "textarea",
+                    "name": "Long text",
+                    "icon": "align-left",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "email",
+                    "name": "Email",
+                    "icon": "mail",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "number",
+                    "name": "Number",
+                    "icon": "hash",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "phone",
+                    "name": "Phone number",
+                    "icon": "phone",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "url",
+                    "name": "Link",
+                    "icon": "link",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "choice",
+            "label": "Choices",
+            "types": [
+                {
+                    "key": "select",
+                    "name": "Dropdown",
+                    "icon": "chevron-down",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "radio",
+                    "name": "Multiple choice",
+                    "icon": "circle-dot",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "checkboxes",
+                    "name": "Checkboxes",
+                    "icon": "list-checks",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "checkbox",
+                    "name": "Checkbox",
+                    "icon": "square-check",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": true
+                }
+            ]
+        },
+        {
+            "key": "date",
+            "label": "Dates and times",
+            "types": [
+                {
+                    "key": "date",
+                    "name": "Date",
+                    "icon": "calendar",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "time",
+                    "name": "Time",
+                    "icon": "clock",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "datetime",
+                    "name": "Date and time",
+                    "icon": "calendar-clock",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "file",
+            "label": "Files",
+            "types": [
+                {
+                    "key": "file",
+                    "name": "File upload",
+                    "icon": "paperclip",
+                    "group": "file",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "layout",
+            "label": "Layout",
+            "types": [
+                {
+                    "key": "heading",
+                    "name": "Heading",
+                    "icon": "heading",
+                    "group": "layout",
+                    "takes_input": false,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                },
+                {
+                    "key": "paragraph",
+                    "name": "Paragraph",
+                    "icon": "pilcrow",
+                    "group": "layout",
+                    "takes_input": false,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                },
+                {
+                    "key": "repeater",
+                    "name": "Repeating group",
+                    "icon": "copy-plus",
+                    "group": "layout",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": true,
+                    "watchable": false,
+                    "checkbox": false
+                }
+            ]
+        }
+    ],
+    "group_types": [
+        {
+            "key": "text",
+            "label": "Text",
+            "types": [
+                {
+                    "key": "text",
+                    "name": "Short text",
+                    "icon": "type",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "textarea",
+                    "name": "Long text",
+                    "icon": "align-left",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "email",
+                    "name": "Email",
+                    "icon": "mail",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "number",
+                    "name": "Number",
+                    "icon": "hash",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "phone",
+                    "name": "Phone number",
+                    "icon": "phone",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "url",
+                    "name": "Link",
+                    "icon": "link",
+                    "group": "text",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "choice",
+            "label": "Choices",
+            "types": [
+                {
+                    "key": "select",
+                    "name": "Dropdown",
+                    "icon": "chevron-down",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "radio",
+                    "name": "Multiple choice",
+                    "icon": "circle-dot",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "checkboxes",
+                    "name": "Checkboxes",
+                    "icon": "list-checks",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": true,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "checkbox",
+                    "name": "Checkbox",
+                    "icon": "square-check",
+                    "group": "choice",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": true
+                }
+            ]
+        },
+        {
+            "key": "date",
+            "label": "Dates and times",
+            "types": [
+                {
+                    "key": "date",
+                    "name": "Date",
+                    "icon": "calendar",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "time",
+                    "name": "Time",
+                    "icon": "clock",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                },
+                {
+                    "key": "datetime",
+                    "name": "Date and time",
+                    "icon": "calendar-clock",
+                    "group": "date",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": true,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "file",
+            "label": "Files",
+            "types": [
+                {
+                    "key": "file",
+                    "name": "File upload",
+                    "icon": "paperclip",
+                    "group": "file",
+                    "takes_input": true,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                }
+            ]
+        },
+        {
+            "key": "layout",
+            "label": "Layout",
+            "types": [
+                {
+                    "key": "heading",
+                    "name": "Heading",
+                    "icon": "heading",
+                    "group": "layout",
+                    "takes_input": false,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                },
+                {
+                    "key": "paragraph",
+                    "name": "Paragraph",
+                    "icon": "pilcrow",
+                    "group": "layout",
+                    "takes_input": false,
+                    "has_options": false,
+                    "has_fields": false,
+                    "watchable": false,
+                    "checkbox": false
+                }
+            ]
+        }
+    ],
+    "can": {
+        "update": true,
+        "publish": true,
+        "delete": true,
+        "view_entries": true
+    },
+    "urls": {
+        "index": "http://localhost/forms",
+        "edit": "http://localhost/forms/job-application/edit",
+        "preview": "http://localhost/forms/job-application/preview",
+        "versions": "http://localhost/forms/job-application/versions",
+        "export": "http://localhost/forms/job-application/export",
+        "entries": "http://localhost/forms/job-application/entries",
+        "publish": "http://localhost/forms/job-application/publish",
+        "discard": "http://localhost/forms/job-application/draft",
+        "destroy": "http://localhost/forms/job-application",
+        "create_section": "http://localhost/forms/job-application/sections/create",
+        "order_sections": "http://localhost/forms/job-application/sections/order",
+        "structure": "http://localhost/forms/job-application/structure"
+    },
+    "strings": {
+        "back": "Back",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "view": "View",
+        "print": "Print",
+        "actions": "Actions",
+        "confirm_delete": "Delete this? This can't be undone.",
+        "previous_page": "Previous",
+        "next_page": "Next",
+        "page_of": "Page :page of :pages",
+        "forms": "Forms",
+        "settings": "Settings",
+        "preview": "Preview",
+        "publish": "Publish",
+        "confirm_publish": "Publish these changes? People will fill the new version from now on.",
+        "discard": "Discard changes",
+        "confirm_discard": "Discard the unpublished changes? The published version stays.",
+        "export": "Export",
+        "versions": "Versions",
+        "entries": "Entries",
+        "fill": "Open the form",
+        "draft_notice": "You're editing a draft. People keep filling version :number until you publish.",
+        "unpublished_notice": "This form isn't published yet. Publish it so people can fill it.",
+        "locked_notice": "This form is defined in code. Change it there; the builder only shows it.",
+        "wizard": "One section at a time (wizard)",
+        "add_section": "Add section",
+        "add_field": "Add field",
+        "add_field_to": "Add a field to :section",
+        "add_field_to_group": "Add a field to :group",
+        "choose_type": "Field type",
+        "no_fields": "No fields yet.",
+        "required": "Required",
+        "shown_when": "Shown when",
+        "depends_on": "Depends on :field",
+        "missing_type": "This field type isn't available any more.",
+        "move_up": "Move up",
+        "move_down": "Move down",
+        "move": "Move :item",
+        "field_key": "Key",
+        "section": "Section",
+        "step": "Step :number",
+        "instructions": "To move an item with the keyboard, press Space on its handle, use the arrow keys, then press Space again to drop it or Escape to cancel.",
+        "picked_up": ":item picked up. Position :position of :total.",
+        "moved": ":item moved to position :position of :total.",
+        "dropped": ":item dropped at position :position of :total.",
+        "cancelled": "Move cancelled. :item is back at position :position of :total.",
+        "order_saved": "Order saved.",
+        "order_failed": "The order couldn't be saved. Try again.",
+        "preview_title": "Preview of :form",
+        "preview_notice": "This is how the form looks. Submitting checks the answers but doesn't save them.",
+        "version_number": "Version :number",
+        "draft": "Draft",
+        "current": "Current",
+        "published_at": "Published",
+        "author": "By",
+        "fields_count": "Fields",
+        "entries_count": "Entries",
+        "assistant": "Assistant",
+        "assistant_title": "Build with the assistant",
+        "assistant_help": "Describe the form or the changes you want. The assistant changes the draft; review it before you publish.",
+        "assistant_prompt": "What should the form ask?",
+        "assistant_submit": "Ask the assistant"
+    }
+}

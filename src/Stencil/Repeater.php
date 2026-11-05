@@ -450,6 +450,7 @@ class Repeater extends Field
             'removeLabel' => __('Remove'),
             'rowLabel' => $this->getRowLabelTemplate(),
             'rowLabels' => array_map(fn (int $position) => $this->getRowLabel($position + 1), array_keys($keys)),
+            'rowKeys' => array_map('strval', $keys),
             'nextRow' => $numeric === [] ? 0 : max(array_map('intval', $numeric)) + 1,
             'rowPlaceholder' => self::ROW,
         ];

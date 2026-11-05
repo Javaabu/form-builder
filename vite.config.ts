@@ -7,7 +7,11 @@ import { defineConfig } from "vite"
  *
  * The React components and pages aren't prebuilt: apps build them from resources/js.
  */
-export const entries = ["resources/js/blade/builder.ts", "resources/js/blade/repeater.ts", "resources/css/form-builder.css"]
+export const entries = [
+  "resources/js/blade/builder.ts",
+  "resources/js/blade/repeater.ts",
+  "resources/css/form-builder.css",
+]
 
 export default defineConfig({
   // Relative URLs, as javaabu/manifest serves dist/ from a sub-path.

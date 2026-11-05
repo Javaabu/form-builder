@@ -1,0 +1,348 @@
+{
+    "status": null,
+    "layout": "layouts.app",
+    "layout_section": "content",
+    "form": {
+        "stencil": 1,
+        "id": "form-builder-job-application",
+        "action": "http://localhost/f/job-application",
+        "method": "POST",
+        "operation": "create",
+        "submit": "Apply",
+        "state": {
+            "full_name": null,
+            "age": null,
+            "applicant_type": null,
+            "company_name": null,
+            "atoll": null,
+            "island": null,
+            "skills": null,
+            "available_from": null,
+            "references": [
+                []
+            ],
+            "agree": null
+        },
+        "live": null,
+        "components": [
+            {
+                "type": "section",
+                "key": "section-personal",
+                "props": {
+                    "heading": "Personal details",
+                    "columns": {
+                        "default": 1,
+                        "md": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "text",
+                        "key": "full_name",
+                        "name": "full_name",
+                        "component": "Text",
+                        "props": {
+                            "label": "Full name",
+                            "required": true,
+                            "thaana": true,
+                            "maxLength": 255
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "key": "age",
+                        "name": "age",
+                        "component": "Number",
+                        "props": {
+                            "label": "Age",
+                            "min": 16,
+                            "max": 100,
+                            "step": 1
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "key": "applicant_type",
+                        "name": "applicant_type",
+                        "component": "Select",
+                        "props": {
+                            "label": "Applicant type",
+                            "required": true,
+                            "options": [
+                                {
+                                    "value": "individual",
+                                    "label": "Individual"
+                                },
+                                {
+                                    "value": "company",
+                                    "label": "Company"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "key": "company_name",
+                        "name": "company_name",
+                        "component": "Text",
+                        "props": {
+                            "label": "Company name",
+                            "required": true,
+                            "maxLength": 255
+                        },
+                        "conditions": [
+                            {
+                                "effect": "visible",
+                                "field": "applicant_type",
+                                "selector": "#applicant_type",
+                                "values": [
+                                    "company"
+                                ],
+                                "checkbox": false
+                            }
+                        ]
+                    },
+                    {
+                        "type": "select",
+                        "key": "atoll",
+                        "name": "atoll",
+                        "component": "Select",
+                        "props": {
+                            "label": "Atoll",
+                            "options": [
+                                {
+                                    "value": "K",
+                                    "label": "Kaafu"
+                                },
+                                {
+                                    "value": "S",
+                                    "label": "Addu"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "key": "island",
+                        "name": "island",
+                        "component": "Select2",
+                        "props": {
+                            "label": "Island",
+                            "options": [],
+                            "parent": "#atoll",
+                            "ajaxUrl": "/f/job-application/options/island?version=1",
+                            "filterField": "parent"
+                        }
+                    },
+                    {
+                        "type": "checkbox-list",
+                        "key": "skills",
+                        "name": "skills[]",
+                        "component": "Checkbox",
+                        "props": {
+                            "label": "Skills",
+                            "options": [
+                                {
+                                    "value": "php",
+                                    "label": "PHP"
+                                },
+                                {
+                                    "value": "js",
+                                    "label": "JavaScript"
+                                },
+                                {
+                                    "value": "design",
+                                    "label": "Design"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "date",
+                        "key": "available_from",
+                        "name": "available_from",
+                        "component": "Date",
+                        "props": {
+                            "label": "Available from"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "key": "section-references",
+                "props": {
+                    "heading": "References"
+                },
+                "children": [
+                    {
+                        "type": "form-builder-content",
+                        "key": "references_note",
+                        "props": {
+                            "text": "Give up to three people we can call.",
+                            "variant": "paragraph"
+                        }
+                    },
+                    {
+                        "type": "repeater",
+                        "key": "references",
+                        "name": "references",
+                        "props": {
+                            "label": "References",
+                            "maxRows": 3,
+                            "addLabel": "Add a reference",
+                            "removeLabel": "Remove",
+                            "rowLabel": "Reference :number",
+                            "rowLabels": [
+                                "Reference 1"
+                            ],
+                            "rowKeys": [
+                                "0"
+                            ],
+                            "nextRow": 1,
+                            "rowPlaceholder": "__ROW__",
+                            "template": {
+                                "type": "group",
+                                "key": "references-__ROW__",
+                                "children": [
+                                    {
+                                        "type": "text",
+                                        "key": "references.__ROW__.name",
+                                        "name": "references[__ROW__][name]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Name",
+                                            "required": true,
+                                            "thaana": true,
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "select",
+                                        "key": "references.__ROW__.relationship",
+                                        "name": "references[__ROW__][relationship]",
+                                        "component": "Select",
+                                        "props": {
+                                            "label": "Relationship",
+                                            "options": [
+                                                {
+                                                    "value": "work",
+                                                    "label": "Work"
+                                                },
+                                                {
+                                                    "value": "other",
+                                                    "label": "Other"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "references.__ROW__.relationship_other",
+                                        "name": "references[__ROW__][relationship_other]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Describe the relationship",
+                                            "maxLength": 255
+                                        },
+                                        "conditions": [
+                                            {
+                                                "effect": "visible",
+                                                "field": "references.__ROW__.relationship",
+                                                "selector": "#references-__ROW__-relationship",
+                                                "values": [
+                                                    "other"
+                                                ],
+                                                "checkbox": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "group",
+                                "key": "references-0",
+                                "children": [
+                                    {
+                                        "type": "text",
+                                        "key": "references.0.name",
+                                        "name": "references[0][name]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Name",
+                                            "required": true,
+                                            "thaana": true,
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "select",
+                                        "key": "references.0.relationship",
+                                        "name": "references[0][relationship]",
+                                        "component": "Select",
+                                        "props": {
+                                            "label": "Relationship",
+                                            "options": [
+                                                {
+                                                    "value": "work",
+                                                    "label": "Work"
+                                                },
+                                                {
+                                                    "value": "other",
+                                                    "label": "Other"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "references.0.relationship_other",
+                                        "name": "references[0][relationship_other]",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Describe the relationship",
+                                            "maxLength": 255
+                                        },
+                                        "conditions": [
+                                            {
+                                                "effect": "visible",
+                                                "field": "references.0.relationship",
+                                                "selector": "#references-0-relationship",
+                                                "values": [
+                                                    "other"
+                                                ],
+                                                "checkbox": false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "checkbox",
+                        "key": "agree",
+                        "name": "agree",
+                        "component": "Checkbox",
+                        "props": {
+                            "label": "I agree to be contacted",
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "open": true,
+    "title": "Job application",
+    "description": "Apply for a position",
+    "wizard": false,
+    "strings": {
+        "closed": "This form isn't accepting entries.",
+        "thanks": "Thank you",
+        "again": "Fill it again",
+        "reference": "Your reference number is :number."
+    }
+}

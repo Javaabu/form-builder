@@ -17,7 +17,9 @@ function number(value: string | undefined): number | null {
 /** The rows of a repeater, not those of repeaters inside it */
 export function rowsOf(repeater: HTMLElement): HTMLElement[] {
   const container = repeater.querySelector<HTMLElement>(":scope > [data-form-builder-repeater-rows]")
-  return container ? Array.from(container.querySelectorAll<HTMLElement>(":scope > [data-form-builder-repeater-row]")) : []
+  return container
+    ? Array.from(container.querySelectorAll<HTMLElement>(":scope > [data-form-builder-repeater-row]"))
+    : []
 }
 
 /** Renumbers the row headings and enables Add and Remove for the number of rows */
@@ -76,8 +78,10 @@ export function removeRow(repeater: HTMLElement, row: HTMLElement): void {
   update(repeater)
 
   const remaining = rowsOf(repeater)
-  const focus = remaining[Math.min(index, remaining.length - 1)]?.querySelector<HTMLElement>("[data-form-builder-repeater-remove]")
-    ?? repeater.querySelector<HTMLElement>("[data-form-builder-repeater-add]")
+  const focus =
+    remaining[Math.min(index, remaining.length - 1)]?.querySelector<HTMLElement>(
+      "[data-form-builder-repeater-remove]",
+    ) ?? repeater.querySelector<HTMLElement>("[data-form-builder-repeater-add]")
   focus?.focus()
 
   repeater.dispatchEvent(new CustomEvent("form-builder:row-removed", { bubbles: true }))

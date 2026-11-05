@@ -8,7 +8,7 @@
         <x-forms::form :action="$action" method="POST" files>
             <x-forms::card>
                 <div class="flex flex-col gap-4">
-                    <x-forms::file name="file" :label="$strings['import_file']" accept="application/json,.json" />
+                    <x-forms::file name="file" :label="$strings['import_file']" mimetypes="application/json" extensions="json" />
                     <x-forms::textarea name="json" :label="$strings['import_json']" rows="8" dir="ltr" />
                     <x-forms::text name="key" :label="$strings['import_key']" dir="ltr">
                         <x-slot:help>{{ $strings['import_key_help'] }}</x-slot:help>

@@ -14,7 +14,7 @@
 
         @if($form_url)
             <div>
-                <x-forms::link-button :url="$form_url" color="outline">{{ $strings['again'] }}</x-forms::link-button>
+                <x-forms::link-button :url="$form_url" color="outline-secondary">{{ $strings['again'] }}</x-forms::link-button>
             </div>
         @endif
     </div>

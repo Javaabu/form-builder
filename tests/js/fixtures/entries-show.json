@@ -1,0 +1,238 @@
+{
+    "status": null,
+    "layout": "layouts.app",
+    "layout_section": "content",
+    "record": {
+        "id": 1,
+        "key": "job-application",
+        "name": "Job application",
+        "description": "Apply for a position",
+        "status": "published",
+        "status_label": "Published",
+        "is_locked": false,
+        "accepts_entries": true,
+        "published_version": 1,
+        "draft_version": null,
+        "has_draft": false,
+        "entries_count": 1,
+        "updated_at": "2026-11-06T10:00:00+00:00",
+        "urls": {
+            "show": "http://localhost/forms/job-application",
+            "edit": "http://localhost/forms/job-application/edit",
+            "entries": "http://localhost/forms/job-application/entries",
+            "preview": "http://localhost/forms/job-application/preview",
+            "destroy": "http://localhost/forms/job-application",
+            "fill": "http://localhost/f/job-application"
+        }
+    },
+    "entry": {
+        "id": 1,
+        "status": "submitted",
+        "version": 1,
+        "submitted_at": "2026-11-06T10:00:00+00:00",
+        "submitted_at_label": "6 November 2026, 10:00",
+        "submitter": null,
+        "values": [],
+        "urls": {
+            "show": "http://localhost/forms/job-application/entries/1",
+            "print": "http://localhost/forms/job-application/entries/1/print",
+            "destroy": "http://localhost/forms/job-application/entries/1"
+        }
+    },
+    "display": {
+        "stencil": 1,
+        "id": "form-builder-entry-1",
+        "method": "POST",
+        "operation": "view",
+        "embedded": true,
+        "state": [],
+        "live": null,
+        "components": [
+            {
+                "type": "section",
+                "key": "section-personal",
+                "props": {
+                    "heading": "Personal details",
+                    "columns": {
+                        "default": 1,
+                        "md": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "text-entry",
+                        "key": "entry-full_name",
+                        "props": {
+                            "name": "full_name",
+                            "label": "Full name",
+                            "value": "އަޙްމަދު ނާޒިމް"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-age",
+                        "props": {
+                            "name": "age",
+                            "label": "Age",
+                            "value": "—"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-applicant_type",
+                        "props": {
+                            "name": "applicant_type",
+                            "label": "Applicant type",
+                            "value": "Company"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-company_name",
+                        "props": {
+                            "name": "company_name",
+                            "label": "Company name",
+                            "value": "ޖާވާބު"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-atoll",
+                        "props": {
+                            "name": "atoll",
+                            "label": "Atoll",
+                            "value": "—"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-island",
+                        "props": {
+                            "name": "island",
+                            "label": "Island",
+                            "value": "—"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-skills",
+                        "props": {
+                            "name": "skills",
+                            "label": "Skills",
+                            "value": "—"
+                        }
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-available_from",
+                        "props": {
+                            "name": "available_from",
+                            "label": "Available from",
+                            "value": "—"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "key": "section-references",
+                "props": {
+                    "heading": "References"
+                },
+                "children": [
+                    {
+                        "type": "form-builder-content",
+                        "key": "references_note",
+                        "props": {
+                            "text": "Give up to three people we can call.",
+                            "variant": "paragraph"
+                        }
+                    },
+                    {
+                        "type": "fieldset",
+                        "key": "references",
+                        "props": {
+                            "label": "References"
+                        },
+                        "children": [
+                            {
+                                "type": "fieldset",
+                                "key": "references-0",
+                                "props": {
+                                    "label": "Reference 1"
+                                },
+                                "children": [
+                                    {
+                                        "type": "text-entry",
+                                        "key": "entry-references.0.name",
+                                        "props": {
+                                            "name": "references-0-name",
+                                            "label": "Name",
+                                            "value": "މަރިޔަމް"
+                                        }
+                                    },
+                                    {
+                                        "type": "text-entry",
+                                        "key": "entry-references.0.relationship",
+                                        "props": {
+                                            "name": "references-0-relationship",
+                                            "label": "Relationship",
+                                            "value": "Work"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text-entry",
+                        "key": "entry-agree",
+                        "props": {
+                            "name": "agree",
+                            "label": "I agree to be contacted",
+                            "value": "Yes"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "files": [],
+    "can": {
+        "delete": true
+    },
+    "urls": {
+        "index": "http://localhost/forms/job-application/entries",
+        "print": "http://localhost/forms/job-application/entries/1/print",
+        "destroy": "http://localhost/forms/job-application/entries/1"
+    },
+    "strings": {
+        "back": "Back",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "view": "View",
+        "print": "Print",
+        "actions": "Actions",
+        "confirm_delete": "Delete this? This can't be undone.",
+        "previous_page": "Previous",
+        "next_page": "Next",
+        "page_of": "Page :page of :pages",
+        "title": "Entries of :form",
+        "entry": "Entry :number",
+        "empty": "No entries yet.",
+        "export": "Export CSV",
+        "all_versions": "All versions",
+        "version": "Version",
+        "version_number": "Version :number",
+        "submitted_at": "Submitted",
+        "submitter": "Submitted by",
+        "guest": "Guest",
+        "filter": "Filter",
+        "files": "Files",
+        "form": "Form",
+        "details": "Details",
+        "number": "#"
+    }
+}

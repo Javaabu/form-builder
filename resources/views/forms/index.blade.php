@@ -5,7 +5,7 @@
         @component('form-builder::partials.header', ['title' => $strings['title'], 'description' => $strings['description']])
             @slot('actions')
                 @if(isset($urls['import']) && $can['create'])
-                    <x-forms::link-button :url="$urls['import']" color="outline" start-icon="upload">{{ $strings['import'] }}</x-forms::link-button>
+                    <x-forms::link-button :url="$urls['import']" color="outline-secondary" start-icon="upload">{{ $strings['import'] }}</x-forms::link-button>
                 @endif
                 @if(isset($urls['create']) && $can['create'])
                     <x-forms::link-button :url="$urls['create']" start-icon="plus">{{ $strings['create'] }}</x-forms::link-button>
@@ -20,7 +20,7 @@
                 <label for="form-builder-search" class="text-sm font-medium">{{ $strings['search'] }}</label>
                 <input id="form-builder-search" type="search" name="search" value="{{ $search }}" dir="auto" class="h-9 rounded-md border bg-background px-3">
             </div>
-            <x-forms::button type="submit" color="outline">{{ $strings['search_button'] }}</x-forms::button>
+            <x-forms::button type="submit" color="outline-secondary">{{ $strings['search_button'] }}</x-forms::button>
         </form>
 
         @if($forms === [])
@@ -59,7 +59,7 @@
                                     @endisset
                                 </td>
                                 <td class="px-3 py-2 text-end">
-                                    <x-forms::link-button :url="$form['urls']['show']" color="outline" size="sm">{{ $strings['open_builder'] }}</x-forms::link-button>
+                                    <x-forms::link-button :url="$form['urls']['show']" color="outline-secondary" size="sm">{{ $strings['open_builder'] }}</x-forms::link-button>
                                 </td>
                             </tr>
                         @endforeach

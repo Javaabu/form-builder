@@ -9,7 +9,7 @@
                     data-form-builder-handle
                     aria-describedby="form-builder-instructions"
                     aria-label="{{ str_replace(':item', $field['label'], $strings['move']) }}">
-                <x-forms::icon name="grip-vertical" />
+                <x-forms::icon name="arrow-up-down" />
             </button>
         @endif
 
@@ -38,8 +38,8 @@
         @if($editable)
             <div class="flex shrink-0 flex-wrap items-center gap-1">
                 @include('form-builder::partials.move-buttons', ['item' => $field])
-                <x-forms::link-button :url="$field['urls']['edit']" color="outline" size="sm">{{ $strings['edit'] }}</x-forms::link-button>
-                <x-forms::button type="submit" color="destructive" size="sm" form="form-builder-delete-field-{{ str_replace('.', '-', $field['path']) }}">{{ $strings['delete'] }}</x-forms::button>
+                <x-forms::link-button :url="$field['urls']['edit']" color="outline-secondary" size="sm">{{ $strings['edit'] }}</x-forms::link-button>
+                <x-forms::button type="submit" color="danger" size="sm" form="form-builder-delete-field-{{ str_replace('.', '-', $field['path']) }}">{{ $strings['delete'] }}</x-forms::button>
             </div>
             <form method="POST" action="{{ $field['urls']['destroy'] }}" id="form-builder-delete-field-{{ str_replace('.', '-', $field['path']) }}" data-form-builder-confirm="{{ $strings['confirm_delete'] }}" hidden>
                 @csrf
