@@ -1,4 +1,5 @@
 import { Alert, Button, LinkButton } from "@javaabu/forms"
+import { AssistantCard } from "../../components/AssistantCard"
 import { PageHeader } from "../../components/PageHeader"
 import { PaginationNav } from "../../components/PaginationNav"
 import { StatusAlert } from "../../components/StatusAlert"
@@ -56,6 +57,8 @@ export default function Index({
           {strings.search_button}
         </Button>
       </form>
+
+      {urls.assistant && can.create ? <AssistantCard url={urls.assistant} strings={strings} /> : null}
 
       {forms.length === 0 ? (
         <Alert type="info">{search !== "" ? strings.no_results : strings.empty}</Alert>

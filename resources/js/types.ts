@@ -101,7 +101,7 @@ export interface FormsIndexProps extends PageProps {
   pagination: Pagination
   search: string
   can: { create: boolean }
-  urls: { index: string; create?: string; import?: string }
+  urls: { index: string; create?: string; import?: string; assistant?: string }
 }
 
 /** form-builder::Forms/Edit: a new form, or a form's settings */

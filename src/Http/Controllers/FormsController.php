@@ -78,6 +78,7 @@ class FormsController extends Controller
                 'index' => $this->url($request, 'index'),
                 'create' => $this->hasRoute($request, 'create') ? $this->url($request, 'create') : null,
                 'import' => $this->hasRoute($request, 'import') ? $this->url($request, 'import') : null,
+                'assistant' => $this->hasRoute($request, 'assistant.create') ? $this->url($request, 'assistant.create') : null,
             ]),
             'strings' => Strings::forms(),
         ]));

@@ -23,6 +23,10 @@
             <x-forms::button type="submit" color="outline-secondary">{{ $strings['search_button'] }}</x-forms::button>
         </form>
 
+        @if(isset($urls['assistant']) && $can['create'])
+            @include('form-builder::partials.assistant', ['url' => $urls['assistant'], 'strings' => $strings])
+        @endif
+
         @if($forms === [])
             <x-forms::alert type="info">{{ $search !== '' ? $strings['no_results'] : $strings['empty'] }}</x-forms::alert>
         @else

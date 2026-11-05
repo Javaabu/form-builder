@@ -4,6 +4,8 @@ namespace Javaabu\FormBuilder\Routing;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
+use Javaabu\FormBuilder\Ai\FormAssistant;
+use Javaabu\FormBuilder\Http\Controllers\AssistantController;
 use Javaabu\FormBuilder\Http\Controllers\EntriesController;
 use Javaabu\FormBuilder\Http\Controllers\FieldsController;
 use Javaabu\FormBuilder\Http\Controllers\FillController;
@@ -53,6 +55,7 @@ class FormBuilderRoutes
         $fields = $controllers['fields'] ?? FieldsController::class;
         $entries = $controllers['entries'] ?? EntriesController::class;
         $fill = $controllers['fill'] ?? FillController::class;
+        $assistant = $controllers['assistant'] ?? AssistantController::class;
 
         $builder = (bool) config('form-builder.builder', true);
 
@@ -61,7 +64,7 @@ class FormBuilderRoutes
             'as' => "{$name}.",
             'middleware' => $middleware,
             self::GUARD_ACTION => $guard,
-        ], function (Router $router) use ($forms, $sections, $fields, $entries, $fill, $builder) {
+        ], function (Router $router) use ($forms, $sections, $fields, $entries, $fill, $assistant, $builder) {
             $form = '[A-Za-z0-9_-]+';
             $key = '[a-z][a-z0-9_]*';
             $path = '[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)?';
@@ -73,6 +76,10 @@ class FormBuilderRoutes
                 $router->post('/', [$forms, 'store'])->name('store');
                 $router->get('/import', [$forms, 'importForm'])->name('import');
                 $router->post('/import', [$forms, 'import'])->name('import.store');
+
+                if (FormAssistant::available()) {
+                    $router->post('/assistant', [$assistant, 'create'])->name('assistant.create');
+                }
             }
 
             $router->get('/{form}', [$forms, 'show'])->name('show')->where('form', $form);
@@ -89,6 +96,10 @@ class FormBuilderRoutes
                 $router->post('/{form}/publish', [$forms, 'publish'])->name('publish')->where('form', $form);
                 $router->delete('/{form}/draft', [$forms, 'discardDraft'])->name('draft.destroy')->where('form', $form);
                 $router->put('/{form}/structure', [$forms, 'structure'])->name('structure')->where('form', $form);
+
+                if (FormAssistant::available()) {
+                    $router->post('/{form}/assistant', [$assistant, 'update'])->name('assistant')->where('form', $form);
+                }
 
                 $router->get('/{form}/sections/create', [$sections, 'create'])->name('sections.create')->where('form', $form);
                 $router->post('/{form}/sections', [$sections, 'store'])->name('sections.store')->where('form', $form);
@@ -168,7 +179,7 @@ class FormBuilderRoutes
     {
         $name = (string) $request->route()?->getName();
 
-        foreach (['.sections.', '.fields.', '.entries.', '.draft.', '.preview.', '.import.'] as $part) {
+        foreach (['.sections.', '.fields.', '.entries.', '.draft.', '.preview.', '.import.', '.assistant.'] as $part) {
             if (str_contains($name, $part)) {
                 return substr($name, 0, strpos($name, $part));
             }

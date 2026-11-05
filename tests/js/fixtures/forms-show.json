@@ -854,7 +854,8 @@
         "destroy": "http://localhost/forms/job-application",
         "create_section": "http://localhost/forms/job-application/sections/create",
         "order_sections": "http://localhost/forms/job-application/sections/order",
-        "structure": "http://localhost/forms/job-application/structure"
+        "structure": "http://localhost/forms/job-application/structure",
+        "assistant": "http://localhost/forms/job-application/assistant"
     },
     "strings": {
         "back": "Back",

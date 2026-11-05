@@ -93,6 +93,14 @@ describe("form-builder::Forms/Show", () => {
     expect(router.post).toHaveBeenCalledWith(props.urls.publish, {}, expect.anything())
   })
 
+  it("offers the assistant when laravel/ai is installed", () => {
+    render(<FormsShow {...props} />)
+
+    const assistant = document.querySelector<HTMLElement>("[data-form-builder-assistant]")!
+    expect(within(assistant).getByLabelText(/What should the form ask/)).toHaveAttribute("name", "description")
+    expect(assistant.querySelector("form")).toHaveAttribute("action", props.urls.assistant)
+  })
+
   it("opens a new field of the chosen type", () => {
     render(<FormsShow {...props} />)
 

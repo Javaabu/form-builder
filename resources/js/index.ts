@@ -3,6 +3,7 @@
 export { formBuilderComponents, FormBuilderRepeater, FormBuilderContent, rowFromTemplate } from "./stencil"
 export { SortableList, type SortableListProps, type SortableHandleProps } from "./components/SortableList"
 export { PageHeader, type PageHeaderProps } from "./components/PageHeader"
+export { AssistantCard } from "./components/AssistantCard"
 export {
   createSortable,
   moveItem,

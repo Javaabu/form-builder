@@ -60,6 +60,10 @@ class Strings
             'entries' => __('Entries'),
             'locked' => __('Defined in code'),
             'open_builder' => __('Open'),
+            'assistant_title' => __('Build with the assistant'),
+            'assistant_help' => __('Describe the form you need. The assistant makes a draft; review it before you publish.'),
+            'assistant_prompt' => __('What should the form ask?'),
+            'assistant_submit' => __('Ask the assistant'),
         ];
     }
 

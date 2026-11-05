@@ -40,7 +40,8 @@
     "urls": {
         "index": "http://localhost/forms",
         "create": "http://localhost/forms/create",
-        "import": "http://localhost/forms/import"
+        "import": "http://localhost/forms/import",
+        "assistant": "http://localhost/forms/assistant"
     },
     "strings": {
         "back": "Back",
@@ -76,6 +77,10 @@
         "version": "Version",
         "entries": "Entries",
         "locked": "Defined in code",
-        "open_builder": "Open"
+        "open_builder": "Open",
+        "assistant_title": "Build with the assistant",
+        "assistant_help": "Describe the form you need. The assistant makes a draft; review it before you publish.",
+        "assistant_prompt": "What should the form ask?",
+        "assistant_submit": "Ask the assistant"
     }
 }

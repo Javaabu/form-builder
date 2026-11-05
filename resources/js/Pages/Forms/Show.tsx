@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { router } from "@inertiajs/react"
 import { Alert, Button, Card, Icon, LinkButton } from "@javaabu/forms"
+import { AssistantCard } from "../../components/AssistantCard"
 import { PageHeader } from "../../components/PageHeader"
 import { SortableList, type SortableHandleProps } from "../../components/SortableList"
 import { StatusAlert } from "../../components/StatusAlert"
@@ -473,6 +474,7 @@ export default function Show({
           </LinkButton>
         </div>
       ) : null}
+      {urls.assistant ? <AssistantCard url={urls.assistant} strings={strings} /> : null}
     </div>
   )
 }

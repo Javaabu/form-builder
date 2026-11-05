@@ -212,4 +212,25 @@ return [
 
     'register_permissions' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | AI assistant
+    |--------------------------------------------------------------------------
+    |
+    | With laravel/ai installed, the builder has an assistant that builds a
+    | form, or changes one, from a description, as a draft to review. provider
+    | and model pick what laravel/ai uses (null: its defaults); attempts is how
+    | many answers it gets to produce a valid form.
+    |
+    */
+
+    'assistant' => [
+        'enabled' => env('FORM_BUILDER_ASSISTANT', true),
+        'provider' => env('FORM_BUILDER_ASSISTANT_PROVIDER'),
+        'model' => env('FORM_BUILDER_ASSISTANT_MODEL'),
+        'timeout' => 120,
+        'attempts' => 2,
+        'max_length' => 4000,
+    ],
+
 ];

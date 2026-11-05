@@ -14,6 +14,7 @@ use Javaabu\Permissions\Models\Role;
 use Javaabu\Permissions\PermissionsServiceProvider;
 use Javaabu\Stencil\StencilServiceProvider;
 use Javaabu\Translatable\TranslatableServiceProvider;
+use Laravel\Ai\AiServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\Permission\PermissionServiceProvider;
 
@@ -54,6 +55,10 @@ abstract class TestCase extends BaseTestCase
 
         if (class_exists(TranslatableServiceProvider::class)) {
             $providers[] = TranslatableServiceProvider::class;
+        }
+
+        if (class_exists(AiServiceProvider::class)) {
+            $providers[] = AiServiceProvider::class;
         }
 
         return $providers;
