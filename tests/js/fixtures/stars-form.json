@@ -1,0 +1,29 @@
+{
+    "stencil": 1,
+    "id": "form-builder-review",
+    "method": "POST",
+    "operation": "create",
+    "submit": "Submit",
+    "state": {
+        "stars": null
+    },
+    "live": null,
+    "components": [
+        {
+            "type": "section",
+            "key": "section-main",
+            "children": [
+                {
+                    "type": "stars",
+                    "key": "stars",
+                    "name": "stars",
+                    "props": {
+                        "label": "Stars",
+                        "required": true,
+                        "max": 4
+                    }
+                }
+            ]
+        }
+    ]
+}

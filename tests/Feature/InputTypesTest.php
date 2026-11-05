@@ -15,6 +15,7 @@ use Javaabu\FormBuilder\InputTypes\TextType;
 use Javaabu\FormBuilder\Models\FormEntry;
 use Javaabu\FormBuilder\Tests\TestCase;
 use Javaabu\FormBuilder\Tests\TestSupport\InputTypes\RatingType;
+use Javaabu\FormBuilder\Tests\TestSupport\InputTypes\StarsType;
 use Javaabu\Stencil\Components\Component;
 use Javaabu\Stencil\Fields\TextInput;
 use PHPUnit\Framework\Attributes\Test;
@@ -62,6 +63,31 @@ class InputTypesTest extends TestCase
 
         $this->assertEquals('★★', $entry->formatted('stars'));
         $this->assertEquals(1, FormEntry::query()->whereAnswer('stars', '>=', 2)->count());
+    }
+
+    #[Test]
+    public function custom_types_render_their_own_stencil_field(): void
+    {
+        FormBuilder::registerInputType(StarsType::class);
+
+        FormDefinition::make('review')->sections([
+            Section::make('main')->fields([Field::make('stars', 'stars')->label('Stars')->setting('max', 4)->required()]),
+        ])->sync();
+
+        $form = FormBuilder::fill('review');
+
+        $this->assertStringContainsString('data-stars="4"', $form->toHtml());
+
+        $node = collect($form->toArray()['components'][0]['children'])->firstWhere('key', 'stars');
+
+        $this->assertEquals('stars', $node['type']);
+        $this->assertEquals(4, $node['props']['max']);
+
+        if (getenv('FORM_BUILDER_UPDATE_FIXTURES')) {
+            file_put_contents(dirname(__DIR__) . '/js/fixtures/stars-form.json', json_encode($form->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n");
+        }
+
+        $this->assertEquals('★★★', FormBuilder::submit('review', ['stars' => '3'])->formatted('stars'));
     }
 
     #[Test]

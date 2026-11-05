@@ -94,6 +94,22 @@ class FillingTest extends TestCase
     }
 
     #[Test]
+    public function wizard_forms_show_one_section_at_a_time(): void
+    {
+        JobApplication::definition()->wizard()->sync();
+
+        $form = FormBuilder::fill('job-application');
+
+        $this->assertStringContainsString('data-stencil-wizard', $form->toHtml());
+
+        $wizard = $form->toArray()['components'][0];
+
+        $this->assertEquals('wizard', $wizard['type']);
+        $this->assertEquals(['step-personal', 'step-references'], array_column($wizard['children'], 'key'));
+        $this->assertEquals('Personal details', $wizard['children'][0]['props']['label']);
+    }
+
+    #[Test]
     public function it_renders_as_json_for_react(): void
     {
         $schema = FormBuilder::fill('job-application')->toArray();
