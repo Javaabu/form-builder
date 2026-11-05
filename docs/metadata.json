@@ -1,0 +1,5 @@
+{
+    "name": "Form Builder",
+    "description": "Dynamic forms for Laravel: versioned form definitions and entries in the database, a builder and filling UI in Blade and Inertia React built on javaabu/stencil, sections, repeating groups, wizards, cascading and conditional inputs, read-only and printable entries, fluent definitions, JSON import and export, extensible input types and an optional AI assistant",
+    "version": "1"
+}

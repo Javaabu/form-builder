@@ -1,0 +1,49 @@
+# javaabu/form-builder
+
+> Dynamic forms for Laravel. Forms and entries live in the database, versioned so entries keep the version they were filled with. Forms are defined in a builder (Route::formBuilder(), Blade or Inertia React), fluently in seeders (FormBuilder::define()->…->sync()), from JSON imports or by an optional laravel/ai assistant. A stored version compiles to a javaabu/stencil form (EntryForm): rendering, validation and conditions come from stencil. Sections, wizards, repeating groups, conditions, cascading selects, 17 field types and custom input types. Entries are queryable (whereAnswer), shown read-only and printable, and export to CSV. Permissions through javaabu/permissions. Optional javaabu/translatable. English and Dhivehi, RTL.
+
+Paths are relative to this file. In a project, that's vendor/javaabu/form-builder/.
+
+## Rules
+
+- Define code-owned forms with `FormBuilder::define('key')->name(...)->sections([Section::make('key')->title(...)->fields([Field::text('key')->label(...)->required(), ...])])->sync()` in a seeder. `sync()` is idempotent: it makes a new version only when the structure changes. Use `->locked()` for forms only code may change, and `config('form-builder.builder')` false for no builder at all.
+- Never change a published version (`FormVersion`, its sections or fields): it throws. Change a form through its draft (`$form->draft()`, the builder, an import, `sync()`), then `$form->publish()`.
+- Field keys are lowercase snake_case, unique in the form (unique within a repeating group for its fields). Answers are stored under them. Don't rename keys of forms that have entries.
+- Text (names, labels, help, options, messages) is a string or a locale map `['en' => ..., 'dv' => ...]`. Read it with `Text::resolve()`, never by indexing the map.
+- Fill a form with `FormBuilder::fill('key')` (an EntryForm, a stencil form): `{{ $form }}` in Blade, or an Inertia prop rendered by `<StencilForm schema={form} components={formBuilderComponents} />`. Always pass `formBuilderComponents` (or register them with `StencilProvider`), or repeating groups and headings won't render.
+- Store submissions with `FormBuilder::submit($form, $request, submitter: $user, subject: $model)`, not by saving `FormEntry` yourself: it validates with the version, normalizes answers and indexes them for `whereAnswer()`.
+- Read answers with `$entry->answer('path')` / `$entry->formatted('path')` and show entries with `FormBuilder::display($entry)`. Query with `FormEntry::whereAnswer('field', '>=', 18)` and `group.key` for fields in repeating groups.
+- Conditions are declarative (`visibleWhen`, `hiddenWhen`, `visibleWhenChecked`, `hiddenWhenChecked`) and checked in the browser and on the server. Inside a repeating group, conditions watch fields of the same row by key.
+- Cascading selects: `Field::select('island')->dependsOn('atoll')->options([['value' => ..., 'label' => ..., 'parent' => ...]])`. The fill and builder routes serve the options; the server checks the pair.
+- Add field types by extending `InputTypes\InputType` (key, name, make() returning a stencil component named `$context->name($field->getKey())`, settings, settingsRules, storage, format) and `FormBuilder::registerInputType()`. Custom React inputs use @javaabu/forms' splitFieldProps/useField/useFieldValue/useFieldState/usePublishField and are registered with `StencilProvider`.
+- Register routes yourself: `Route::formBuilder(['guard' => ..., 'prefix' => ..., 'name' => ...])` and `Route::formBuilderFill([...])`. Give roles the form permissions, then run `php artisan permissions:sync`. Override with controller subclasses (`config('form-builder.controllers')`) and policies (`config('form-builder.policies')`, `Gate::policy()`), not copied routes.
+- Validate definitions (imports, generated JSON) with `DefinitionValidator` or `Importer::read()` before storing them.
+- Pass every user-facing string through `__()` and add it to `lang/dv.json`. Use `thaana()` on Dhivehi free-text fields.
+
+## Docs
+
+- [Introduction](docs/intro.md): what the package does
+- [Requirements](docs/requirements.md): PHP, Laravel, dependencies, optional Inertia, translatable and laravel/ai, npm
+- [Installation & Setup](docs/installation-and-setup.md): installing, migrations, the routes and their options, Blade or Inertia, configuration, uploads
+- [AI assistants](docs/ai-assistants.md): Laravel Boost and llms.txt
+- [Defining forms](docs/basic-usage/defining-forms.md): forms, versions and drafts, defining forms in seeders, sync(), locking, the definition classes and helpers
+- [Field types](docs/basic-usage/field-types.md): the 17 built-in types, their settings and answers, how answers show
+- [Sections, groups and conditions](docs/basic-usage/structure.md): sections and columns, wizards, repeating groups, conditions, cascading selects
+- [The builder](docs/basic-usage/the-builder.md): every admin route, building a form, ordering, drafts and publishing, locked forms
+- [Filling forms](docs/basic-usage/filling-forms.md): the fill routes, a form in your own page, submit(), editing entries
+- [Entries](docs/basic-usage/entries.md): what's stored, answers, whereAnswer(), the entries pages, CSV, files, read-only display, printing
+- [Import and export](docs/basic-usage/import-and-export.md): the format, the builder, the commands, the PHP classes
+- [Permissions](docs/basic-usage/permissions.md): the seven permissions, the policies' abilities, guards, your own rules
+- [Configuration](docs/advanced-usage/configuration.md): every config option and the assets
+- [Custom input types](docs/advanced-usage/custom-input-types.md): InputType, a type with its own stencil field and React component, changing and replacing built-in types
+- [The PHP API](docs/advanced-usage/php-api.md): forms, filling, storing and reading entries, compiling and validating definitions, every class
+- [Controllers and views](docs/advanced-usage/controllers-and-views.md): replacing controllers and their hooks, Blade views, Inertia pages
+- [React](docs/advanced-usage/react.md): formBuilderComponents, the exports, the Blade scripts, the repeater in other stencil forms
+- [AI assistant](docs/advanced-usage/ai-assistant.md): laravel/ai, how it works, the routes, testing with fakes
+- [Translatable forms](docs/advanced-usage/translatable.md): text in versions, form names with javaabu/translatable, reading text
+- [Dhivehi and RTL](docs/advanced-usage/dhivehi-and-rtl.md): strings, Thaana, RTL, lines for review
+- [JSON format](docs/advanced-usage/json-format.md): the export format, sections, fields, conditions, what imports check, answers
+- [Questions and Security](docs/questions-and-security.md): where to get help
+- [Changelog](docs/changelog.md): where changes are listed
+- [About Us](docs/about-us.md): Javaabu
+- [Contributing to the docs](docs/contributing-to-docs.md): how the docs are built
