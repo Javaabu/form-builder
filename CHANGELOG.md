@@ -28,3 +28,4 @@ Initial development of v1.0:
 - Optional laravel/ai assistant that builds or changes a form's draft from a description. It's validated with one retry and tested with laravel/ai's fakes.
 - English and Dhivehi strings, Thaana inputs, logical CSS only.
 - Docs, `llms.txt`, the Laravel Boost guideline and skill, and runnable examples.
+- React and Inertia npm packages are declared for pages only (`npm(..., for: 'pages')`), so Blade-only apps' `manifest:check` doesn't ask for them.

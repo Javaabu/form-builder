@@ -25,4 +25,4 @@ For React (the Inertia pages and the repeater component), your app needs:
 - [@javaabu/onu](https://www.npmjs.com/package/@javaabu/onu)
 - manifest's Vite plugin, which resolves `@javaabu/form-builder` and `@javaabu/stencil`
 
-Run `php artisan manifest:check` to see anything that's missing.
+Blade-only apps don't need any of these: the Blade scripts and styles are prebuilt in `dist/` (or built with Vite), and the React packages are declared for pages only. Run `php artisan manifest:check` to see anything that's missing. It checks the React packages only when your `package.json` has an Inertia adapter, or with `--scope=pages`.

@@ -59,7 +59,7 @@ Route::formBuilderFill();                                    // /f/{form}, publi
 php artisan migrate && php artisan permissions:sync   # view_forms, edit_forms, delete_forms, publish_forms, view/export/delete_form_entries
 ```
 
-`config('form-builder.views')` is `blade` or `inertia`.
+`config('form-builder.views')` is `blade` or `inertia`. Blade-only apps need no React packages; Inertia apps run `php artisan manifest:check` for @javaabu/forms, @javaabu/onu and React.
 
 ## 3. Fill it in your own page
 

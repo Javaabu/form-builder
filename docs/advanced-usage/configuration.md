@@ -41,4 +41,4 @@ javaabu/manifest registers the package as `form-builder`, with:
 | `form-builder::repeater` | Adding and removing rows in Blade forms; required by the repeater view |
 | `@javaabu/form-builder` | The React components and pages, from `resources/js` |
 
-The Blade scripts and styles are prebuilt in `dist/`, so apps that don't build the package with Vite still get them.
+The Blade scripts and styles are prebuilt in `dist/`, so apps that don't build the package with Vite still get them. They import no npm packages. @javaabu/forms, @javaabu/onu, React and Inertia are declared with `npm(..., for: 'pages')`, so `manifest:check` asks only Inertia apps for them.

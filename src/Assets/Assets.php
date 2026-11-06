@@ -29,6 +29,8 @@ class Assets
             ->style('styles', 'css/form-builder.css')
             ->script('builder', 'js/blade/builder.ts')
             ->script('repeater', 'js/blade/repeater.ts')
+            // The Blade scripts and styles import no npm packages; only the
+            // Inertia pages and what apps import as @javaabu/form-builder do
             ->npm([
                 '@javaabu/forms' => 'github:Javaabu/react-forms#next-gen',
                 '@javaabu/onu' => '^0.2.1',
@@ -36,6 +38,6 @@ class Assets
                 'react' => '^19.0',
                 'react-dom' => '^19.0',
                 '@inertiajs/react' => '^2.0 || ^3.0',
-            ]);
+            ], for: 'pages');
     }
 }
